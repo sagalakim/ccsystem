@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Personal Information</title>
+    <!-- <title>Personal Information</title> -->
+    <link rel="icon" href="images/DOLE_picture.ico" type="image/x-icon">
 
      <style>
   .header-blue {
+    /* back to normal color #21a9af */
   background:linear-gradient(135deg, #172a74, #21a9af);
   background-color:#184e8e;
   padding-bottom:80px;
@@ -244,7 +246,7 @@ CSM
             <div class="card">
                 <div class="card-header form-container ">
                 <h3 class="display-6 text-center mb-4 font-size-25 font-weight-bold">Personal nga Impormasyon</h3>
-                    <div class="form-group">
+                    <div class="form-group " >
                             <label for="clienttype font-weight-bold">Client Type</label><br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="clienttype" id="citizen" value="ciziten" required>
@@ -258,7 +260,7 @@ CSM
                                 <input class="form-check-input" type="radio" name="clienttype" id="governement" value="governement">
                                 <label class="form-check-label" for="governement">Gobyerno</label>
                             </div>
-                           
+                        
                         </div>
 
                         <div class="form-group">
@@ -276,13 +278,13 @@ CSM
 
                         <div class="form-group">
                             <label for="date font-weight-bold">Petsa</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
+                            <input type="date" class="form-control" id="date" name="date"  required>
                            
                         </div>
 
                         <div class="form-group">
                             <label for="age font-weight-bold">Age</label>
-                            <input type="text" class="form-control" id="age" name="age" required>
+                            <input type="number" class="form-control" id="age" name="age" required>
                             
                         </div>
 
@@ -391,7 +393,7 @@ CSM
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="CC3" id="radio11" value="option2">
                 <label class="form-check-label" for="radio11">
-                    2. Medyo nakatabang  
+                    2. Medyo nakatabang
                 </label>
             </div>
             <div class="form-check">
@@ -424,8 +426,21 @@ CSM
     </div>
 </div>
 </div>
-
 <script>
+  // Get the current date
+  var currentDate = new Date();
+  
+  // Format the date as YYYY-MM-DD
+  var year = currentDate.getFullYear();
+  var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
+  var day = currentDate.getDate().toString().padStart(2, '0');
+  var formattedDate = year + '-' + month + '-' + day;
+  
+  // Set the value of the input field
+  document.getElementById("date").value = formattedDate;
+</script>   
+<script>
+    
     function showNextPage() {
             var orgChecked = document.getElementById("org").checked;
             var otherChecked = document.getElementById("other").checked;
@@ -436,7 +451,7 @@ CSM
                 window.location.href = "smileyfirst"; 
             }
         }
-
+    
         function enableInput() {
             document.getElementById("textInput").disabled = false;
             document.getElementById("textInput").required = true;

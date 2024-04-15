@@ -27,12 +27,13 @@ html {
 
 body {
   background: rgba(51, 51, 153);
-background: -moz-linear-gradient(-45deg, rgba(51, 51, 153) 0%, rgba(0, 0, 255) 100%);
+/* background: -moz-linear-gradient(-45deg, rgba(51, 51, 153) 0%, rgba(0, 0, 255) 100%);
 background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(51, 51, 153)), color-stop(100%, rgba(51, 51, 204,1)));
 background: -webkit-linear-gradient(-45deg, rgba(51, 51, 153) 0%, rgba(51, 51, 204,1) 100%);
-background: -o-linear-gradient(-45deg, rgba(51, 51, 153) 0%, rgba(51, 51, 204,1) 100%);
-background: -ms-linear-gradient(-45deg, rgba(51, 51, 153) 0%, rgba(51, 51, 204,1) 100%);
-background: linear-gradient(135deg, rgba(51, 51, 153) 0%, rgba(51, 51, 204,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(51, 51, 153) 0%, blue 100%);
+background: -ms-linear-gradient(-45deg, rgba(51, 51, 153) 0%, blue 100%); */
+/* default color in "red" rgba(51, 51, 204,1) */
+background: linear-gradient(135deg, rgba(51, 51, 153),rgba(51, 51, 204,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1 );
 }
 
@@ -160,7 +161,15 @@ Login Box
 	float: left;
 	z-index: 2;
 }
-
+.box-login-title a img{
+  height:40px; width:40px; margin-left:20px;
+  transition: width 0.5s, height 0.5s;
+}
+.box-login-title a img:hover{
+  width: 50px; /* or any desired width */
+  height: 50px; /* or any desired height */
+  margin: 0px;   
+}
 .box-login {
   position: relative;
   top: -4px;
@@ -414,7 +423,7 @@ Credits
   <div class='box-form'>
     <div class='box-login-tab'></div>
     <div class='box-login-title'>
-    <img src="{{asset('images/DOLE_picture.png')}}" style="height:40px; width:40px; margin-left:20px;"><h2 style="margin-top:-30px;margin-left:30px;">LOGIN</h2>
+    <a href="/" ><img src="{{asset('images/DOLE_picture.png')}}" ></a><h2 style="margin-top:-30px;margin-left:30px;">LOGIN</h2>
     </div>
     <div class='box-login'>
       <div class='fieldset-body' id='login_form'>
