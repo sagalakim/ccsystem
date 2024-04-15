@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientSurveyController;
+use App\Models\Location;
+use Illuminate\Support\Facades\Form;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +23,8 @@ Route::get('/', function () {
 });
 
 Route::get('/CitizenCharter', function () {
-    return view('plus');
+    $locations = Location::all();
+    return view('plus', compact('locations'));
 })->name('citizencharter');
 
 Route::get('/admin-login', function () {

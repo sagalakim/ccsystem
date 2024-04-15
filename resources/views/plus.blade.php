@@ -285,13 +285,16 @@ CSM
                         <div class="form-group">
                             <label for="age font-weight-bold">Age</label>
                             <input type="number" class="form-control" id="age" name="age" required>
-                            
                         </div>
 
                         <div class="form-group">
-                            <label for="address font-weight-bold">Lugar nga Gipuy-an</label>
-                            <input type="text" class="form-control" id="address" name="address" required>
-                            
+                            <label for="location">Lugar</label>
+                            <select class="form-control" name="address" id="location">
+                                <option>-- Select --</option>
+                                @foreach($locations as $location)
+                                    <option value="{{ $location->location }}">{{ $location->location }}</option>
+                                @endforeach
+                            </select>
                         </div>
             
                         <div class="form-group">
