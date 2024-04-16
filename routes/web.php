@@ -31,6 +31,10 @@ Route::get('/admin-login', function () {
     return view('login');
 });
 
+Route::get('/summary', function () {
+    return view('summary');
+});
+
 Route::get('/sqd-1', [ClientSurveyController::class,'directsqd1']);
 Route::get('/sqd-2', [ClientSurveyController::class,'directsqd2']);
 
