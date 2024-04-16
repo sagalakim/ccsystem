@@ -23,7 +23,10 @@
 
 @media (min-width:768px) {
   .header-blue {
+    align-items:center;
+    align-content:center;
     padding-bottom:120px;
+    min-height:100vh;
   }
 }
 
@@ -296,55 +299,45 @@ CSM
                         </div>
                     </div>
 
-                       
-            
-                        <div class="form-group">
-                            <label for="service font-weight-bold">Service Availed</label><br>
-                            <div class="form-check form-check-inline">
-                                <input required class="form-check-input" type="radio" name="service" id="org" value="Organisasyon" onclick="disableInput()" >
-                                <label class="form-check-label" for="org">Organisyasyon</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="service" id="other" value="other" onclick="enableInput()" >
-                                <label class="form-check-label" for="other">Uban pa</label>
-                            </div>
-                            <input type="text" class="form-control" id="textInput" name="userinput" placeholder="Please specify" required disabled>
-                            
+                    <div class="form-group  justify-content-between row mx-5 border-bottom align-items-center" >
+                        <div >
+                            <label for="service font-weight-bold">Service Availed</label>
                         </div>
-
-
+                        <div >
+                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Asosasyon</label>
+                        </div>
+                    </div>
+            
                         <div class="row justify-content-center align-items-center mt-4">
             <div style="font-family: Arial, sans-serif; font-size: 17px;">
                 <p class="m-0 font-weight-bold">Citizen's Charter (CC)</p>    
             </div>
-            <div style="font-family: Arial, sans-serif; font-size: 15px;">
-                <p class="m-0">Instruksyon: Butangi og marka (/) ang imong tubag sa mga pangutana sa citizen's charter (CC). Ang Citizen's Charter usa ka opisyal nga dokumento nga nagpakita sa mga serbisyo sa usa ka ahensya/opisina sa gobyerno lakip ang mga kinahanglanon, bayronon, ug oras sa pagproseso ug uban pa.</p>    
-            </div>
+          
         </div>
         <p class="m-0 font-weight-bold" style="font-family: Arial, sans-serif; font-size: 17px;">CC1</p>
         <div style="font-family: Arial, sans-serif; font-size: 15px;">
             <p class="font-weight-bold">1. Hain sa mosunod ang labing maayo nga naghulagway sa atong kahibalo sa usa ka CC?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC1" id="radio1" value="option1">
-                <label class="form-check-label" for="radio1">
+                <input required class="form-check-input" type="radio" disabled name="CC1" id="radio1" value="option1" checked>
+                <label class="form-check-label" for="radio1" style="color:green;font-weight:bold;" >
                     1. Nahibal-an ko kung unsa ang CC ug nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio2" value="option2">
+                <input class="form-check-input" type="radio" disabled name="CC1" id="radio2" value="option2">
                 <label class="form-check-label" for="radio2">
                     2. Kabalo ko unsa ang CC pero WALA ko kakita sa CC ani nga opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio3" value="option3">
+                <input class="form-check-input" type="radio" disabled name="CC1" id="radio3" value="option3">
                 <label class="form-check-label" for="radio3">
                     3. Nahibal-an ko ang CC sa dihang nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio4" value="option4">
+                <input class="form-check-input" type="radio" disabled name="CC1" id="radio4" value="option4">
                 <label class="form-check-label" for="radio4">
                     4. Wala ko kahibalo kung unsa ang CC ug wala koy nakita niini sa opisina. Tubaga og 'N/A' sa CC2 ug CC3.
                 </label>
@@ -354,31 +347,31 @@ CSM
             <p class="font-weight-bold">2. Kung nahibal-an nimo ang CC (gitubag sa 1-3 sa CC1), moingon ka ba nga ang CC niini nga opisina kay...?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC2" id="radio5" value="option1">
-                <label class="form-check-label" for="radio5">
+                <input required class="form-check-input" type="radio" disabled name="CC2" id="radio5" value="option1" checked>
+                <label class="form-check-label" for="radio5" style="color:green;font-weight:bold;">
                     1. Sayon nga makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio6" value="option2">
+                <input class="form-check-input" type="radio" disabled name="CC2" id="radio6" value="option2">
                 <label class="form-check-label" for="radio6">
                     2. Medyo dali makita 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio7" value="option3">
+                <input class="form-check-input" type="radio" disabled name="CC2" id="radio7" value="option3">
                 <label class="form-check-label" for="radio7">
                     3. Lisod makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio8" value="option4">
+                <input class="form-check-input" type="radio" disabled name="CC2" id="radio8" value="option4">
                 <label class="form-check-label" for="radio8">
                     4. Dili makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio9" value="option5">
+                <input class="form-check-input" type="radio" disabled name="CC2" id="radio9" value="option5">
                 <label class="form-check-label" for="radio9">
                     5. Dili magamit
                 </label>
@@ -389,25 +382,25 @@ CSM
             <p class="font-weight-bold">3. Kung nahibal-an nimo ang CC (gitubag ang 1-3 sa CC1), pila ang natabang sa CC kanimo sa imong transaksyon?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC3" id="radio10" value="option1">
-                <label class="form-check-label" for="radio10">
+                <input required class="form-check-input" type="radio" disabled name="CC3" id="radio10" value="option1" checked>
+                <label class="form-check-label" for="radio10" style="color:green;font-weight:bold;">
                     1. Nakatabang kaayo 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio11" value="option2">
+                <input class="form-check-input" type="radio" disabled name="CC3" id="radio11" value="option2">
                 <label class="form-check-label" for="radio11">
                     2. Medyo nakatabang
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio12" value="option3">
+                <input class="form-check-input" type="radio" disabled name="CC3" id="radio12" value="option3">
                 <label class="form-check-label" for="radio12">
                     3. Wala makatabang 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio13" value="option4">
+                <input class="form-check-input" type="radio" disabled name="CC3" id="radio13" value="option4">
                 <label class="form-check-label" for="radio13">
                     4. Dili magamit
                 </label>
