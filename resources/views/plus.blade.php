@@ -289,8 +289,8 @@ CSM
 
                         <div class="form-group">
                             <label for="location">Lugar</label>
-                            <select class="form-control" name="address" id="location">
-                                <option>-- Select --</option>
+                            <select class="form-control" name="address" id="location" required>
+                                <option value=>-- Select --</option>
                                 @foreach($locations as $location)
                                     <option value="{{ $location->location }}">{{ $location->location }}</option>
                                 @endforeach
