@@ -35,7 +35,10 @@
                     <thead>
                         <tr>
                             <th scope="col" style="text-align: left;">Service Quality Dimension (SQD)</th>
-                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#x1F614; </span><br> Kusog nga Dili Mouyon</th>
+                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> 
+                                <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </th>
                             <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon </th>
                             <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon </th>
                             <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon </th>

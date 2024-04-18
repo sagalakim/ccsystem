@@ -246,17 +246,18 @@ CSM
     @csrf
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ">
                 <div class="card-header form-container ">
                 <h3 class="display-6 text-center mb-4 font-size-25 font-weight-bold">Summary</h3>
+                <div>
                 <h5 class="display-6 text-left mb-4  font-weight-bold">Personal Info</h5>
 
-                    <div class="form-group  justify-content-between row mx-5 border-bottom align-items-center " >
+                    <div class="form-group  justify-content-between    row mx-5 border-bottom align-items-center " >
                         <div >
                             <label for="clienttype font-weight-bold">Client Type</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Goberno</label>
+                            <label class="attributes text-color-red" id = "service_avail" style="color:green;font-style:italic;font-weight:bold;">Goberno</label>
                         </div>
                         
                         </div>
@@ -307,7 +308,7 @@ CSM
                             <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Asosasyon</label>
                         </div>
                     </div>
-            
+    </div>
                         <div class="row justify-content-center align-items-center mt-4">
             <div style="font-family: Arial, sans-serif; font-size: 17px;">
                 <p class="m-0 font-weight-bold">Citizen's Charter (CC)</p>    
@@ -406,11 +407,146 @@ CSM
                 </label>
             </div>
         </div>
-        </div>
-    </div>
+        <div class="con " id="gov_sqd" style="display:none">
+        
+        <div class="row mt-4">
+            <div class="col-md">
+             <div class="table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;align-content:center">Service Quality Dimension (SQD)</th>
+                            <th scope="col" class="text-center align-content-center" style= "border: 1px solid #dee2e6;"> 
+                                <!-- <span class="emoji  " style="font-size: 3em;">&#x1F614; </span> -->
+                                <!-- <span class="emoji" style="font-size: 12px;line-height:0;">Kusog nga Dili Mouyon</span> -->
+                                Evaluation
+                            </th>
+                            
 
+                        </tr>
+                    </thead>
+                    <form method="POST" action="{{route('submitsqdsurvey')}}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name='clientid' style="display:none;" >
+                        <input type="text" name='ccsurvey' style="display:none;" >
+                    <tbody>
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD0. Kontento ko sa serbisyo nga akong nakuha</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                            </tr>
+
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD1. Gigugol nako ang igo nga oras sa akong transaksyon</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD2. Gisunod sa opisina ang mga kinahanglanon ug lakang sa transaksyon base sa gihatag nga kasayuran</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD3. Ang mga lakang (lakip ang pagbayad) nga kinahanglan nakong buhaton alang sa akong transaksyon sayon ​​ug yano</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD4. Dali ra nakong nakit-an ang impormasyon bahin sa akong transaksyon gikan sa opisina o sa website niini</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#129335;&#8205;&#9794;&#65039;
+                                </span><br> N/A
+                            </td>
+                        </tr>
+                    </tbody>    
+                    
+                </table>
+</div>
+        </div>
+
+    </div>
+    </div>
+    <div class="con "  id="others_sqd" style="display:none;">
+        
+        <div class="row mt-4">
+            <div class="col-md">
+             <div class="table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center;align-content:center">Service Quality Dimension (SQD)</th>
+                            <th scope="col" class="text-center align-content-center" style= "border: 1px solid #dee2e6;"> 
+                                <!-- <span class="emoji  " style="font-size: 3em;">&#x1F614; </span> -->
+                                <!-- <span class="emoji" style="font-size: 12px;line-height:0;">Kusog nga Dili Mouyon</span> -->
+                                Evaluation
+                            </th>
+                            
+
+                        </tr>
+                    </thead>
+                    <form method="POST" action="{{route('submitsqdsurvey')}}" enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" name='clientid' style="display:none;" >
+                        <input type="text" name='ccsurvey' style="display:none;" >
+                    <tbody>
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD5. Nagbayad ako og makatarunganon nga kantidad sa bayad alang sa akong transaksyon</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                            </tr>
+
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD6. Gibati nako nga patas ang opisina sa tanan, o "wala'y palakasan", sa akong transaksyon</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                                
+                            </td>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD7. Gitratar ako nga matinahuron sa mga kawani, ug (kung nangayo og tabang), ang mga kawani makatabang</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD8. Nakuha nako ang akong gikinahanglan gikan sa opisina sa gobyerno, o (kung gibalibaran) ang pagdumili sa hangyo igo nga gipasabut kanako</td>
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
+                            </td>
+                        </td>
+                        </tr>
+
+                    </tbody>    
+                    
+                </table>
+</div>
+        </div>
+
+    </div>
+    </div>
     <div class="col-md-12 text-right mt-4">
-            <button class="custom-btn btn btn-primary btn-lg" type='submit'> Next <span>&rsaquo;&rsaquo;</span> </button>
+            <button class="custom-btn btn btn-primary btn-lg" type='submit'> Finish <span>&rsaquo;&rsaquo;</span> </button>
         </div>
         </div>
         
@@ -448,6 +584,7 @@ CSM
                 window.location.href = "smileyfirst"; 
             }
         }
+
     
         function enableInput() {
             document.getElementById("textInput").disabled = false;
@@ -458,6 +595,41 @@ CSM
             document.getElementById("textInput").disabled = true;
             document.getElementById("textInput").required = false;
         }
+</script>
+<script>
+        const label = document.getElementById("service_avail")
+        const mydivgov = document.getElementById("gov_sqd")
+        const mydivothers = document.getElementById("others_sqd")
+
+        const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  label.innerText = "Happy Birthday!"
+  console.log(label.innerText)
+       
+        if (label.innerText === "Goberno"){
+            mydivgov.style.display = "block";
+            mydivothers.style.display = "none";
+            myGreeting()
+        }else{
+            mydivgov.style.display = "none";
+            mydivothers.style.display = "block";
+            console.log(label.innerText === "Goberno")
+            
+        }
+}
+
+        console.log(label.innerText)
+       
+        if (label.innerText === "Goberno"){
+            mydivgov.style.display = "block";
+            mydivothers.style.display = "none";
+        }else{
+            mydivgov.style.display = "none";
+            mydivothers.style.display = "block";
+            console.log(label.innerText === "Goberno")
+        }
+
 </script>
 
 
