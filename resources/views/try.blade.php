@@ -54,7 +54,7 @@
         <h3 class="display-4 font-weight-bold">Department of Labor and Employment</h3>
         <p class="display-6 mb-0">Regional Office No. X</p>
         <p class="display-6 mb-0">Northern Mindanao</p>
-        <p class="display-4 mb-0">Misamis Oriental Field Office</p>
+        <p class="display-4 mb-0">Misamis Oriental Provincial Field Office</p>
         <form action = "CitizenCharter" method="Get"   >
           <button class="btn btn-primary btn-lg action-button" style = "background-color:transparent;border-radius:50px" type="submit" >Next</button>
         <form>

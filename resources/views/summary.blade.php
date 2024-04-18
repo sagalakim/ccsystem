@@ -227,9 +227,12 @@ CSM
   <div>
         <div class="header-blue">
             <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container d-flex justify-content-start">
-                    <img src="{{ asset('images/DOLE_picture.png') }}" alt="Logo" width="30" height="24" class="ml-3 d-inline-block align-text-top">
-                    <a class="navbar-brand" href="/">Department of Labor and Employment</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>  
+            <div class="container d-flex justify-content-start align-content-center align-items-start">
+                    <img src="{{ asset('images/DOLE_picture.png') }}" alt="Logo" width="40" height="100%" class="ml-3 d-inline-block align-text-top">
+                    <a class="navbar-brand align-content-center align-items-center mx-1" style= "line-height:16px" href="/"> Department of Labor and Employment - X 
+                    <p style="font-weight:500;font-size:12px;letter-spacing:4px;height:0">Misamis Oriental Provincial Field Office</p>
+                
+                </a>
                 </div>
             </nav>
           

@@ -9,8 +9,10 @@
                     <div>
                         <img src="{{ asset('images/DOLE_picture.png') }}" class="img-fluid mb-3" alt="DOLE image" style="max-height: 20px;">
                     </div>
-                    <div style="font-family: Arial, sans-serif; font-size: 16px;">
-                        <p class="m-0 ml-2 font-weight-bold">Department of Labor and Employment</p>
+                    <div style="font-family: Arial, sans-serif;">
+                        <p class="m-0 ml-2 font-weight-bold text-left" style= "line-height:14px">Department of Labor and Employment - X</p>
+                        <p class="m-0 ml-2 font-weight-bold text-left" style="font-weight:500;font-size:8px;letter-spacing:4px;">Misamis Oriental Provincial Field Office</p>
+
                     </div>
                 </div>
             </div>
@@ -33,16 +35,18 @@
              <div class="table-responsive">
                 <table class="table">
                     <thead>
-                        <tr>
+                        <tr class="align-content-start align-items-center justify-content-center " >
                             <th scope="col" style="text-align: left;">Service Quality Dimension (SQD)</th>
-                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> 
+                            <th scope="col" class="text-center align-content-start align-items-start" style= "border: 1px solid #dee2e6;"> 
                                 <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </th>
-                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon </th>
-                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon </th>
-                            <th scope="col" class="text-center" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon </th>
-                            <th scope="col" class="text-center"> <span class="emoji" style="font-size: 3em;">&#128522; </span><br>Uyon kaayo </th>
+                            <th scope="col" class="text-center align-content-start align-items-start" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon </th>
+                            <th scope="col" class="text-center align-content-start align-items-start" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon </th>
+                            <th scope="col" class="text-center align-content-start align-items-start" style= "border: 1px solid #dee2e6;"> <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon </th>
+                            <th scope="col" class="text-center align-content-start align-items-start"> <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                        </th>
 
                         </tr>
                     </thead>

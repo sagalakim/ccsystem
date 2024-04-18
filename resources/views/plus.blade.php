@@ -223,11 +223,15 @@ CSM
   <body >
   <div>
         <div class="header-blue">
-            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container d-flex justify-content-start">
-                    <img src="{{ asset('images/DOLE_picture.png') }}" alt="Logo" width="30" height="24" class="ml-3 d-inline-block align-text-top">
-                    <a class="navbar-brand" href="/">Department of Labor and Employment</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>  
+            <nav class="navbar navbar-dark navbar-expand-md  navigation-clean-search">
+                <div class="container d-flex justify-content-start align-content-center align-items-start">
+                    <img src="{{ asset('images/DOLE_picture.png') }}" alt="Logo" width="40" height="100%" class="ml-3 d-inline-block align-text-top">
+                    <a class="navbar-brand align-content-center align-items-center mx-1" style= "line-height:16px" href="/"> Department of Labor and Employment - X 
+                    <p style="font-weight:500;font-size:12px;letter-spacing:4px;height:0">Misamis Oriental Provincial Field Office</p>
+                
+                </a>
                 </div>
+                
             </nav>
           
       
@@ -246,17 +250,17 @@ CSM
             <div class="card">
                 <div class="card-header form-container ">
                 <h3 class="display-6 text-center mb-4 font-size-25 font-weight-bold">Personal nga Impormasyon</h3>
-                    <div class="form-group " >
+                    <div class="form-group justify-content-center" >
                             <label for="clienttype font-weight-bold">Client Type</label><br>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="clienttype" id="citizen" value="ciziten" required>
                                 <label class="form-check-label" for="citizen">Katawhan</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline justify-content-center align-content-center text-center">
                                 <input class="form-check-input" type="radio" name="clienttype" id="business" value="business">
                                 <label class="form-check-label" for="business">Negosyo</label>
                             </div>
-                            <div class="form-check form-check-inline">
+                            <div class="form-check form-check-inline justify-content-center align-content-center text-center">
                                 <input class="form-check-input" type="radio" name="clienttype" id="governement" value="governement">
                                 <label class="form-check-label" for="governement">Gobyerno</label>
                             </div>
@@ -301,7 +305,7 @@ CSM
                             <label for="service font-weight-bold">Service Availed</label><br>
                             <div class="form-check form-check-inline">
                                 <input required class="form-check-input" type="radio" name="service" id="org" value="Organisasyon" onclick="disableInput()" >
-                                <label class="form-check-label" for="org">Organisyasyon</label>
+                                <label class="form-check-label" for="org">Asosasyon</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="service" id="other" value="other" onclick="enableInput()" >
