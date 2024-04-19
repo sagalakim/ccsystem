@@ -245,8 +245,6 @@ CSM
                 </div>
               @endif
               
-    <form action="{{route('submitsurvey')}}" method="Post" enctype="multipart/form-data">
-    @csrf
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card ">
@@ -260,7 +258,7 @@ CSM
                             <label for="clienttype font-weight-bold">Client Type</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" id = "service_avail" style="color:green;font-style:italic;font-weight:bold;">Goberno</label>
+                            <label class="attributes text-color-red" id = "t" style="color:green;font-style:italic;font-weight:bold;">{{$sqd1->client->client_type}}</label>
                         </div>
                         
                         </div>
@@ -272,7 +270,7 @@ CSM
                         
                        
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Bayi</label>
+                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">{{$sqd1->client->sex}}</label>
                         </div>
                         
                         </div>
@@ -283,7 +281,7 @@ CSM
                             <label for="date font-weight-bold">Petsa</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">04/16/2024</label>
+                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">{{date('M d, Y', strtotime($sqd1->cc->date))}}</label>
                         </div>
                     </div>
                     <div class="form-group  justify-content-between row mx-5 border-bottom align-items-center" >
@@ -291,7 +289,7 @@ CSM
                             <label for="age font-weight-bold">Edad</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">40</label>
+                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">{{$sqd1->client->age}}</label>
                         </div>
                     </div>
                     <div class="form-group  justify-content-between row mx-5 border-bottom align-items-center" >
@@ -299,7 +297,7 @@ CSM
                             <label for="address font-weight-bold">Lugar nga Gipuy-an</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Opol</label>
+                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">{{$sqd1->client->region_of_residence}}</label>
                         </div>
                     </div>
 
@@ -308,7 +306,7 @@ CSM
                             <label for="service font-weight-bold">Service Availed</label>
                         </div>
                         <div >
-                            <label class="attributes text-color-red" style="color:green;font-style:italic;font-weight:bold;">Asosasyon</label>
+                            <label class="attributes text-color-red" id='service_avail' style="color:green;font-style:italic;font-weight:bold;">{{$sqd1->client->service_availed}}</label>
                         </div>
                     </div>
     </div>
@@ -323,62 +321,125 @@ CSM
             <p class="font-weight-bold">1. Hain sa mosunod ang labing maayo nga naghulagway sa atong kahibalo sa usa ka CC?</p>
             
             <div class="form-check">
+                @if($sqd1->cc->cc1 == 'option1')
                 <input required class="form-check-input" type="radio" disabled name="CC1" id="radio1" value="option1" checked>
                 <label class="form-check-label" for="radio1" style="color:green;font-weight:bold;" >
                     1. Nahibal-an ko kung unsa ang CC ug nakita nako ang CC sa opisina.
                 </label>
+                @else
+                <input required class="form-check-input" type="radio" disabled name="CC1" id="radio1" value="option1" >
+                <label class="form-check-label" for="radio1" >
+                    1. Nahibal-an ko kung unsa ang CC ug nakita nako ang CC sa opisina.
+                </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc1 == 'option2')
+                <input class="form-check-input" type="radio" disabled name="CC1" id="radio2" value="option2" checked>
+                <label class="form-check-label" for="radio2" style="color:green;font-weight:bold;">
+                    2. Kabalo ko unsa ang CC pero WALA ko kakita sa CC ani nga opisina.
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC1" id="radio2" value="option2">
                 <label class="form-check-label" for="radio2">
                     2. Kabalo ko unsa ang CC pero WALA ko kakita sa CC ani nga opisina.
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc1 == 'option3')
+                <input checked class="form-check-input" type="radio" disabled name="CC1" id="radio3" value="option3">
+                <label class="form-check-label" for="radio3" style="color:green;font-weight:bold;">
+                    3. Nahibal-an ko ang CC sa dihang nakita nako ang CC sa opisina.
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC1" id="radio3" value="option3">
                 <label class="form-check-label" for="radio3">
                     3. Nahibal-an ko ang CC sa dihang nakita nako ang CC sa opisina.
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc1 == 'option4')
+                <input checked class="form-check-input" type="radio" disabled name="CC1" id="radio4" value="option4">
+                <label class="form-check-label" for="radio4" style="color:green;font-weight:bold;">
+                    4. Wala ko kahibalo kung unsa ang CC ug wala koy nakita niini sa opisina. Tubaga og 'N/A' sa CC2 ug CC3.
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC1" id="radio4" value="option4">
                 <label class="form-check-label" for="radio4">
                     4. Wala ko kahibalo kung unsa ang CC ug wala koy nakita niini sa opisina. Tubaga og 'N/A' sa CC2 ug CC3.
                 </label>
+                @endif
             </div>
             <p class="m-0 font-weight-bold" style="font-family: Arial, sans-serif; font-size: 17px;">CC2</p>
         <div style="font-family: Arial, sans-serif; font-size: 15px;">
             <p class="font-weight-bold">2. Kung nahibal-an nimo ang CC (gitubag sa 1-3 sa CC1), moingon ka ba nga ang CC niini nga opisina kay...?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" disabled name="CC2" id="radio5" value="option1" checked>
+                @if($sqd1->cc->cc2 == 'option1')
+                <input checked required class="form-check-input" type="radio" disabled name="CC2" id="radio5" value="option1" checked>
                 <label class="form-check-label" for="radio5" style="color:green;font-weight:bold;">
                     1. Sayon nga makita
                 </label>
+                @else
+                <input required class="form-check-input" type="radio" disabled name="CC2" id="radio5" value="option1">
+                <label class="form-check-label" for="radio5">
+                    1. Sayon nga makita
+                </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc2 == 'option2')
+                <input checked class="form-check-input" type="radio" disabled name="CC2" id="radio6" value="option2">
+                <label class="form-check-label" for="radio6" style="color:green;font-weight:bold;">
+                    2. Medyo dali makita 
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC2" id="radio6" value="option2">
                 <label class="form-check-label" for="radio6">
                     2. Medyo dali makita 
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc2 == 'option3')
+                <input checked class="form-check-input" type="radio" disabled name="CC2" id="radio7" value="option3">
+                <label class="form-check-label" for="radio7" style="color:green;font-weight:bold;">
+                    3. Lisod makita
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC2" id="radio7" value="option3">
                 <label class="form-check-label" for="radio7">
                     3. Lisod makita
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc2 == 'option4')
+                <input checked class="form-check-input" type="radio" disabled name="CC2" id="radio8" value="option4">
+                <label class="form-check-label" for="radio8" style="color:green;font-weight:bold;">
+                    4. Dili makita
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC2" id="radio8" value="option4">
                 <label class="form-check-label" for="radio8">
                     4. Dili makita
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc2 == 'option5')
+                <input checked class="form-check-input" type="radio" disabled name="CC2" id="radio9" value="option5">
+                <label class="form-check-label" for="radio9" style="color:green;font-weight:bold;">
+                    5. Dili magamit
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC2" id="radio9" value="option5">
                 <label class="form-check-label" for="radio9">
                     5. Dili magamit
                 </label>
+                @endif
             </div>
 
             <p class="m-0 font-weight-bold" style="font-family: Arial, sans-serif; font-size: 17px;">CC3</p>
@@ -386,28 +447,56 @@ CSM
             <p class="font-weight-bold">3. Kung nahibal-an nimo ang CC (gitubag ang 1-3 sa CC1), pila ang natabang sa CC kanimo sa imong transaksyon?</p>
             
             <div class="form-check">
+                @if($sqd1->cc->cc3 == 'option1')
                 <input required class="form-check-input" type="radio" disabled name="CC3" id="radio10" value="option1" checked>
                 <label class="form-check-label" for="radio10" style="color:green;font-weight:bold;">
                     1. Nakatabang kaayo 
                 </label>
+                @else
+                <input required class="form-check-input" type="radio" disabled name="CC3" id="radio10" value="option1">
+                <label class="form-check-label" for="radio10">
+                    1. Nakatabang kaayo 
+                </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc3 == 'option2')
+                <input checked class="form-check-input" type="radio" disabled name="CC3" id="radio11" value="option2">
+                <label class="form-check-label" for="radio11" style="color:green;font-weight:bold;">
+                    2. Medyo nakatabang
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC3" id="radio11" value="option2">
                 <label class="form-check-label" for="radio11">
                     2. Medyo nakatabang
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc3 == 'option3')
+                <input checked class="form-check-input" type="radio" disabled name="CC3" id="radio12" value="option3">
+                <label class="form-check-label" for="radio12" style="color:green;font-weight:bold;">
+                    3. Wala makatabang 
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC3" id="radio12" value="option3">
                 <label class="form-check-label" for="radio12">
                     3. Wala makatabang 
                 </label>
+                @endif
             </div>
             <div class="form-check">
+                @if($sqd1->cc->cc3 == 'option4')
+                <input checked class="form-check-input" type="radio" disabled name="CC3" id="radio13" value="option4">
+                <label class="form-check-label" for="radio13" style="color:green;font-weight:bold;">
+                    4. Dili magamit
+                </label>
+                @else
                 <input class="form-check-input" type="radio" disabled name="CC3" id="radio13" value="option4">
                 <label class="form-check-label" for="radio13">
                     4. Dili magamit
                 </label>
+                @endif
             </div>
         </div>
         <div class="con " id="gov_sqd" style="display:none">
@@ -428,51 +517,144 @@ CSM
 
                         </tr>
                     </thead>
-                    <form method="POST" action="{{route('submitsqdsurvey')}}" enctype="multipart/form-data">
-                        @csrf
-                        <input type="text" name='clientid' style="display:none;" >
-                        <input type="text" name='ccsurvey' style="display:none;" >
+                     
                     <tbody>
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD0. Kontento ko sa serbisyo nga akong nakuha</td>
+                            @if($sqd1->sqd0 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
-                            </tr>
+                            @elseif($sqd1->sqd0 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd0 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd0 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd0 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
+
+                        </tr>
 
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD1. Gigugol nako ang igo nga oras sa akong transaksyon</td>
+                            @if($sqd1->sqd1 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd1 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd1 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd1 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd1 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                             </td>
                         </tr>
                         
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD2. Gisunod sa opisina ang mga kinahanglanon ug lakang sa transaksyon base sa gihatag nga kasayuran</td>
+                            @if($sqd1->sqd2 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd2 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd2 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd2 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd2 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                         </tr>
 
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD3. Ang mga lakang (lakip ang pagbayad) nga kinahanglan nakong buhaton alang sa akong transaksyon sayon ​​ug yano</td>
+                            @if($sqd1->sqd3 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd3 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd3 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd3 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd3 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                         </td>
                         </tr>
 
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD4. Dali ra nakong nakit-an ang impormasyon bahin sa akong transaksyon gikan sa opisina o sa website niini</td>
+                            @if($sqd1->sqd4 == 'option1')
                             <td style="text-align: center;">
-                            <span class="emoji" style="font-size: 3em;">&#129335;&#8205;&#9794;&#65039;
-                                </span><br> N/A
+                            <span class="emoji" style="font-size: 3em;">&#x1F614; 
+                                </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd4 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd4 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd4 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd4 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                         </tr>
                     </tbody>    
                     
@@ -500,43 +682,117 @@ CSM
 
                         </tr>
                     </thead>
-                    <form method="POST" action="{{route('submitsqdsurvey')}}" enctype="multipart/form-data">
-                        @csrf
+                        
                         <input type="text" name='clientid' style="display:none;" >
                         <input type="text" name='ccsurvey' style="display:none;" >
                     <tbody>
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD5. Nagbayad ako og makatarunganon nga kantidad sa bayad alang sa akong transaksyon</td>
+                            @if($sqd1->sqd5 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
-                            </tr>
+                            @elseif($sqd1->sqd5 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd5 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd5 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd5 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
+                        </tr>
 
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD6. Gibati nako nga patas ang opisina sa tanan, o "wala'y palakasan", sa akong transaksyon</td>
+                            @if($sqd1->sqd6 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
-                                
                             </td>
+                            @elseif($sqd1->sqd6 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
                             </td>
+                            @elseif($sqd1->sqd6 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd6 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd6 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
+                            
                         </tr>
                         
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD7. Gitratar ako nga matinahuron sa mga kawani, ug (kung nangayo og tabang), ang mga kawani makatabang</td>
+                            @if($sqd1->sqd7 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd7 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd7 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd7 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd7 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                         </tr>
 
                         <tr>
                             <td class="align-content-center" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; text-align: left;">SQD8. Nakuha nako ang akong gikinahanglan gikan sa opisina sa gobyerno, o (kung gibalibaran) ang pagdumili sa hangyo igo nga gipasabut kanako</td>
+                            @if($sqd1->sqd8 == 'option1')
                             <td style="text-align: center;">
                             <span class="emoji" style="font-size: 3em;">&#x1F614; 
                                 </span><br> Kusog nga Dili Mouyon
                             </td>
+                            @elseif($sqd1->sqd8 == 'option2')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#x1F641; </span><br> Dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd8 == 'option3')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128528; </span><br> Dili mouyon o dili mouyon
+                            </td>
+                            @elseif($sqd1->sqd8 == 'option4')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128578; </span><br> Uyon
+                            </td>
+                            @elseif($sqd1->sqd8 == 'option5')
+                            <td style="text-align: center;">
+                            <span class="emoji" style="font-size: 3em;">&#128522; </span>
+                            <p class="mb-0">Uyon kaayo</P> 
+                            </td>
+                            @endif
                         </td>
                         </tr>
 
@@ -548,13 +804,14 @@ CSM
 
     </div>
     </div>
-    <div class="col-md-12 text-right mt-4">
-            <button class="custom-btn btn btn-primary btn-lg" type='submit'> Finish <span>&rsaquo;&rsaquo;</span> </button>
-        </div>
-        </div>
+        <form action = "{{route('finish')}}" method="GET"   >
+            <div class="col-md-12 text-right mt-4">
+                <button class="custom-btn btn btn-primary btn-lg" type='submit'> Finish <span>&rsaquo;&rsaquo;</span> </button>
+            </div>
+        </form>
+    </div>
         
     </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -604,16 +861,16 @@ CSM
         const mydivgov = document.getElementById("gov_sqd")
         const mydivothers = document.getElementById("others_sqd")
 
-        const myTimeout = setTimeout(myGreeting, 5000);
+        const myTimeout = setTimeout(myGreeting, 0);
 
 function myGreeting() {
-  label.innerText = "Happy Birthday!"
+  //label.innerText = "Happy Birthday!"
   console.log(label.innerText)
        
-        if (label.innerText === "Goberno"){
+        if (label.innerText === "Asosasyon"){
             mydivgov.style.display = "block";
             mydivothers.style.display = "none";
-            myGreeting()
+        
         }else{
             mydivgov.style.display = "none";
             mydivothers.style.display = "block";

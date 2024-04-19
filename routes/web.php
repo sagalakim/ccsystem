@@ -27,13 +27,17 @@ Route::get('/CitizenCharter', function () {
     return view('plus', compact('locations'));
 })->name('citizencharter');
 
+Route::get('/Finish-Survey', [ClientSurveyController::class,'finish'])->name('finish');
+
 Route::get('/admin-login', function () {
     return view('login');
 });
 
+/*
 Route::get('/summary', function () {
     return view('summary');
 });
+*/
 
 Route::get('/sqd-1', [ClientSurveyController::class,'directsqd1']);
 Route::get('/sqd-2', [ClientSurveyController::class,'directsqd2']);
@@ -66,6 +70,9 @@ Route::post('/submitsqd2survey', [ClientSurveyController::class,'sqd2post'])->na
 
 Route::get('/sqd-1/{ccsurvey}', [ClientSurveyController::class,'sqd1'])->name('sqd1');
 Route::post('/submit/sqd-1', [ClientSurveyController::class,'sqd1post']);
+
+Route::get('/summary/{sqd}', [ClientSurveyController::class,'summone'])->name('summone');
+
 
 
 

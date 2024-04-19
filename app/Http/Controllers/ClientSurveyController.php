@@ -20,8 +20,8 @@ class ClientSurveyController extends Controller
         'address' => 'required',
         'service' => 'required',
         'CC1' => 'required',
-        'CC2' => 'required',
-        'CC3' => 'required'
+        'CC2' => '',
+        'CC3' => ''
     ], ['clienttype.required' => 'Please select at least one on the client type.',
         'gender.required' => 'Please select your gender.',
         'date.required' => 'Please select date.',
@@ -55,15 +55,27 @@ class ClientSurveyController extends Controller
         ]);
     }
 
-    $ccsurvey = CcSurvey::create([
-        'client_id' => $client->id,
-        'date' => $request->date,
-        'cc1' => $CC1,
-        "cc2"=> $CC2,
-        "cc3"=> $CC3,
-    ]);
+    if ($CC1 == 'option4'){
+        $ccsurvey = CcSurvey::create([
+            'client_id' => $client->id,
+            'date' => $request->date,
+            'cc1' => $CC1,
+            "cc2"=> 'N/A',
+            "cc3"=> 'N/A',
+        ]);
+    }
+    else{
+        $ccsurvey = CcSurvey::create([
+            'client_id' => $client->id,
+            'date' => $request->date,
+            'cc1' => $CC1,
+            "cc2"=> $CC2,
+            "cc3"=> $CC3,
+        ]);
+    }
     
-    return redirect()->route('sqd1', $ccsurvey->id)->with('success', "Data saved successfully!");
+    
+    return redirect()->route('sqd1', $ccsurvey->id);
     //return response()->json(['success']);
 }
 
@@ -71,7 +83,7 @@ public function sqd1(CcSurvey $ccsurvey) {
     if (session('success')) {
         $survey = CcSurvey::findOrFail($ccsurvey->id);
 
-        if ($survey->client->service_availed == 'Organisasyon') {
+        if ($survey->client->service_availed == 'Asosasyon') {
             return view('sqd.smiley', compact('survey'));
         } else {
             return view('sqd.smiley2', compact('survey'));
@@ -83,7 +95,7 @@ public function sqd1(CcSurvey $ccsurvey) {
 
 public function sqd1post(Request $request){
 
-    ServiceQualityDimension::create([
+    $sqd = ServiceQualityDimension::create([
         'client_id' => $request->clientid,
         'cc_survey_id' => $request->ccsurvey,
         'sqd0' => $request->SQD0,
@@ -97,12 +109,22 @@ public function sqd1post(Request $request){
         'sqd8' => null,
     ]);
 
+    return redirect()->route('summone', $sqd->id)->with('success', "Data saved successfully!");
+}
+
+public function summone(ServiceQualityDimension $sqd){
+    $sqd1 = ServiceQualityDimension::findOrFail($sqd->id);
+
+    return view('summary', compact('sqd1'));
+}
+
+public function finish(Request $request){
     return redirect()->route('citizencharter')->with('success', "Data saved successfully!");
 }
 
 public function sqd2post(Request $request){
 
-    ServiceQualityDimension::create([
+    $sqd = ServiceQualityDimension::create([
         'client_id' => $request->clientid,
         'cc_survey_id' => $request->ccsurvey,
         'sqd5' => $request->SQD0,
@@ -111,7 +133,7 @@ public function sqd2post(Request $request){
         'sqd8' => $request->SQD3,
     ]);
 
-    return redirect()->route('citizencharter')->with('success', "Data saved successfully!");
+    return redirect()->route('summone', $sqd->id)->with('success', "Data saved successfully!");
 }
 
 public function sqd2(CcSurvey $ccsurvey) {

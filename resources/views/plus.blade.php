@@ -304,7 +304,7 @@ CSM
                         <div class="form-group">
                             <label for="service font-weight-bold">Service Availed</label><br>
                             <div class="form-check form-check-inline">
-                                <input required class="form-check-input" type="radio" name="service" id="org" value="Organisasyon" onclick="disableInput()" >
+                                <input required class="form-check-input" type="radio" name="service" id="org" value="Asosasyon" onclick="disableInput()" >
                                 <label class="form-check-label" for="org">Asosasyon</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -329,26 +329,26 @@ CSM
             <p class="font-weight-bold">1. Hain sa mosunod ang labing maayo nga naghulagway sa atong kahibalo sa usa ka CC?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC1" id="radio1" value="option1">
+                <input required class="form-check-input" type="radio" onclick="enableInputcc()" name="CC1" id="radio1" value="option1">
                 <label class="form-check-label" for="radio1">
                     1. Nahibal-an ko kung unsa ang CC ug nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio2" value="option2">
+                <input class="form-check-input" type="radio" onclick="enableInputcc()" name="CC1" id="radio2" value="option2">
                 <label class="form-check-label" for="radio2">
                     2. Kabalo ko unsa ang CC pero WALA ko kakita sa CC ani nga opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio3" value="option3">
+                <input class="form-check-input" type="radio" name="CC1" id="radio3" onclick="enableInputcc()" value="option3">
                 <label class="form-check-label" for="radio3">
                     3. Nahibal-an ko ang CC sa dihang nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="CC1" id="radio4" value="option4">
-                <label class="form-check-label" for="radio4">
+                <label class="form-check-label" for="radio4" onclick="disableInputcc()">
                     4. Wala ko kahibalo kung unsa ang CC ug wala koy nakita niini sa opisina. Tubaga og 'N/A' sa CC2 ug CC3.
                 </label>
             </div>
@@ -468,6 +468,65 @@ CSM
             document.getElementById("textInput").disabled = true;
             document.getElementById("textInput").required = false;
         }
+
+        function enableInputcc() {
+            document.getElementById("radio5").disabled = false;
+            document.getElementById("radio5").required = true;
+
+            document.getElementById("radio6").disabled = false;
+            document.getElementById("radio6").required = true;
+
+            document.getElementById("radio7").disabled = false;
+            document.getElementById("radio7").required = true;
+
+            document.getElementById("radio8").disabled = false;
+            document.getElementById("radio8").required = true;
+
+            document.getElementById("radio9").disabled = false;
+            document.getElementById("radio9").required = true;
+
+            document.getElementById("radio10").disabled = false;
+            document.getElementById("radio10").required = true;
+
+            document.getElementById("radio11").disabled = false;
+            document.getElementById("radio11").required = true;
+
+            document.getElementById("radio12").disabled = false;
+            document.getElementById("radio12").required = true;
+
+            document.getElementById("radio13").disabled = false;
+            document.getElementById("radio13").required = true;
+        }
+
+        function disableInputcc() {
+            document.getElementById("radio5").disabled = true;
+            document.getElementById("radio5").required = false;
+
+            document.getElementById("radio6").disabled = true;
+            document.getElementById("radio6").required = false;
+
+            document.getElementById("radio7").disabled = true;
+            document.getElementById("radio7").required = false;
+
+            document.getElementById("radio8").disabled = true;
+            document.getElementById("radio8").required = false;
+
+            document.getElementById("radio9").disabled = true;
+            document.getElementById("radio9").required = false;
+
+            document.getElementById("radio10").disabled = true;
+            document.getElementById("radio10").required = false;
+
+            document.getElementById("radio11").disabled = true;
+            document.getElementById("radio11").required = false;
+
+            document.getElementById("radio12").disabled = true;
+            document.getElementById("radio12").required = false;
+
+            document.getElementById("radio13").disabled = true;
+            document.getElementById("radio13").required = false;
+        }
+        
 </script>
 
 

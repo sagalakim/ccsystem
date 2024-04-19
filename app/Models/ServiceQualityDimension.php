@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Client;
+use App\Models\CcSurvey;
 
 class ServiceQualityDimension extends Model
 {
@@ -37,4 +39,14 @@ class ServiceQualityDimension extends Model
         'sqd7',
         'sqd8',
     ];
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class, 'client_id', 'id');
+    }
+
+    public function cc()
+    {
+        return $this->belongsTo(CcSurvey::class, 'cc_survey_id', 'id');
+    }
 }

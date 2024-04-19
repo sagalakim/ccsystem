@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOLE ARTA</title>
+  <link rel="icon" href="images/DOLE_picture.ico" type="image/x-icon">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
     @import 'https://fonts.googleapis.com/css?family=Open+Sans|Quicksand:400,700';
