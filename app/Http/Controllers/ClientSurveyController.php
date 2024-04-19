@@ -36,7 +36,7 @@ class ClientSurveyController extends Controller
     $CC2 = $request->input('CC2');
     $CC3 = $request->input('CC3');
 
-    if ($request->service == 'other'){
+    if ($request->service != 'Asosasyon'){
         $client = Client:: create([
             'client_type' => $request->clienttype,
             'sex' => $request->gender,
@@ -75,7 +75,7 @@ class ClientSurveyController extends Controller
     }
     
     
-    return redirect()->route('sqd1', $ccsurvey->id);
+    return redirect()->route('sqd1', $ccsurvey->id)->with('success', 'Data saved successfully!');
     //return response()->json(['success']);
 }
 
