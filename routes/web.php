@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientSurveyController;
 use App\Models\Location;
 use Illuminate\Support\Facades\Form;
+use Carbon\Carbon;
+
 
 
 /*
@@ -24,7 +26,8 @@ Route::get('/', function () {
 
 Route::get('/CitizenCharter', function () {
     $locations = Location::all();
-    return view('plus', compact('locations'));
+    $currentDate = Carbon::now()->format('Y-m-d');
+    return view('plus', compact('locations', 'currentDate'));
 })->name('citizencharter');
 
 Route::get('/Finish-Survey', [ClientSurveyController::class,'finish'])->name('finish');

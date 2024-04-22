@@ -282,7 +282,7 @@ CSM
 
                         <div class="form-group">
                             <label for="date font-weight-bold">Petsa</label>
-                            <input type="date" class="form-control" id="date" name="date"  required>
+                            <input type="date" class="form-control" value='{{$currentDate}}' id="date" name="date"  required>
                            
                         </div>
 
@@ -434,19 +434,6 @@ CSM
 </div>
 </div>
 <script>
-  // Get the current date
-  var currentDate = new Date();
-  
-  // Format the date as YYYY-MM-DD
-  var year = currentDate.getFullYear();
-  var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-indexed
-  var day = currentDate.getDate().toString().padStart(2, '0');
-  var formattedDate = year + '-' + month + '-' + day;
-  
-  // Set the value of the input field
-  document.getElementById("date").value = formattedDate;
-</script>   
-<script>
     
     function showNextPage() {
             var orgChecked = document.getElementById("org").checked;
@@ -527,17 +514,6 @@ CSM
             document.getElementById("radio13").required = false;
         }
         
-</script>
-
-
-<script>
-    $('input[type=radio][name=service]').change(function() {
-        if (this.value == 'other') {
-            $('#other_service').show();
-        } else {
-            $('#other_service').hide();
-        }
-    });
 </script>
   </body>
   
