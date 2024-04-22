@@ -357,31 +357,31 @@ CSM
             <p class="font-weight-bold">2. Kung nahibal-an nimo ang CC (gitubag sa 1-3 sa CC1), moingon ka ba nga ang CC niini nga opisina kay...?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC2" id="radio5" value="option1">
+                <input required class="form-check-input" type="radio" name="CC2" id="radio5" value="option1" disabled>
                 <label class="form-check-label" for="radio5">
                     1. Sayon nga makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio6" value="option2">
+                <input class="form-check-input" type="radio" name="CC2" id="radio6" value="option2" disabled>
                 <label class="form-check-label" for="radio6">
                     2. Medyo dali makita 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio7" value="option3">
+                <input class="form-check-input" type="radio" name="CC2" id="radio7" value="option3" disabled>
                 <label class="form-check-label" for="radio7">
                     3. Lisod makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio8" value="option4">
+                <input class="form-check-input" type="radio" name="CC2" id="radio8" value="option4" disabled>
                 <label class="form-check-label" for="radio8">
                     4. Dili makita
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC2" id="radio9" value="option5">
+                <input class="form-check-input" type="radio" name="CC2" id="radio9" value="option5" disabled>
                 <label class="form-check-label" for="radio9">
                     5. Dili magamit
                 </label>
@@ -392,25 +392,25 @@ CSM
             <p class="font-weight-bold">3. Kung nahibal-an nimo ang CC (gitubag ang 1-3 sa CC1), pila ang natabang sa CC kanimo sa imong transaksyon?</p>
             
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="CC3" id="radio10" value="option1">
+                <input required class="form-check-input" type="radio" name="CC3" id="radio10" value="option1" disabled>
                 <label class="form-check-label" for="radio10">
                     1. Nakatabang kaayo 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio11" value="option2">
+                <input class="form-check-input" type="radio" name="CC3" id="radio11" value="option2" disabled>
                 <label class="form-check-label" for="radio11">
                     2. Medyo nakatabang
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio12" value="option3">
+                <input class="form-check-input" type="radio" name="CC3" id="radio12" value="option3" disabled>
                 <label class="form-check-label" for="radio12">
                     3. Wala makatabang 
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC3" id="radio13" value="option4">
+                <input class="form-check-input" type="radio" name="CC3" id="radio13" value="option4" disabled>
                 <label class="form-check-label" for="radio13">
                     4. Dili magamit
                 </label>

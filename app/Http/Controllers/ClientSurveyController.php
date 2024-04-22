@@ -136,9 +136,6 @@ public function sqd2post(Request $request){
     return redirect()->route('summone', $sqd->id)->with('success', "Data saved successfully!");
 }
 
-public function sqd2(CcSurvey $ccsurvey) {
-
-}
 
     public function directsqd1(){
         if(1 == 2){
