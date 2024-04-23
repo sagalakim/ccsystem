@@ -7,11 +7,15 @@ use App\Models\CcSurvey;
 use App\Models\Client;
 use App\Models\ServiceQualityDimension;
 use App\Models\User;
+use Carbon\Carbon; //composer require nesbot/carbon
+
 
 class ClientSurveyController extends Controller
 {
     public function ccsurvey(Request $request)
 {
+    date_default_timezone_set('Asia/Manila');
+
     $request->validate([
         'clienttype' => 'required',
         'gender'=> 'required',
@@ -43,6 +47,8 @@ class ClientSurveyController extends Controller
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->userinput,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
     else{
@@ -52,6 +58,8 @@ class ClientSurveyController extends Controller
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->service,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
 
@@ -62,6 +70,8 @@ class ClientSurveyController extends Controller
             'cc1' => $CC1,
             "cc2"=> 'N/A',
             "cc3"=> 'N/A',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
     else{
@@ -71,6 +81,8 @@ class ClientSurveyController extends Controller
             'cc1' => $CC1,
             "cc2"=> $CC2,
             "cc3"=> $CC3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
         ]);
     }
     
@@ -95,6 +107,8 @@ public function sqd1(CcSurvey $ccsurvey) {
 
 public function sqd1post(Request $request){
 
+    date_default_timezone_set('Asia/Manila');
+
     $sqd = ServiceQualityDimension::create([
         'client_id' => $request->clientid,
         'cc_survey_id' => $request->ccsurvey,
@@ -107,6 +121,8 @@ public function sqd1post(Request $request){
         'sqd6' => null,
         'sqd7' => null,
         'sqd8' => null,
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now()
     ]);
 
     return redirect()->route('summone', $sqd->id)->with('success', "Data saved successfully!");
@@ -123,6 +139,7 @@ public function finish(Request $request){
 }
 
 public function sqd2post(Request $request){
+    date_default_timezone_set('Asia/Manila');
 
     $sqd = ServiceQualityDimension::create([
         'client_id' => $request->clientid,
@@ -131,6 +148,8 @@ public function sqd2post(Request $request){
         'sqd6' => $request->SQD1,
         'sqd7' => $request->SQD2,
         'sqd8' => $request->SQD3,
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now()
     ]);
 
     return redirect()->route('summone', $sqd->id)->with('success', "Data saved successfully!");

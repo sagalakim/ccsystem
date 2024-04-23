@@ -249,6 +249,7 @@ CSM
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header form-container ">
+
                 <h3 class="display-6 text-center mb-4 font-size-25 font-weight-bold">Personal nga Impormasyon</h3>
                     <div class="form-group justify-content-center" >
                             <label for="clienttype font-weight-bold">Client Type</label><br>
@@ -330,24 +331,24 @@ CSM
             
             <div class="form-check">
                 <input required class="form-check-input" type="radio" onclick="enableInputcc()" name="CC1" id="radio1" value="option1">
-                <label class="form-check-label" for="radio1">
+                <label class="form-check-label" for="radio1" onclick="enableInputcc()">
                     1. Nahibal-an ko kung unsa ang CC ug nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" onclick="enableInputcc()" name="CC1" id="radio2" value="option2">
-                <label class="form-check-label" for="radio2">
+                <label class="form-check-label" for="radio2" onclick="enableInputcc()">
                     2. Kabalo ko unsa ang CC pero WALA ko kakita sa CC ani nga opisina.
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="CC1" id="radio3" onclick="enableInputcc()" value="option3">
-                <label class="form-check-label" for="radio3">
+                <label class="form-check-label" for="radio3" onclick="enableInputcc()">
                     3. Nahibal-an ko ang CC sa dihang nakita nako ang CC sa opisina.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="CC1" id="radio4" value="option4">
+                <input class="form-check-input" type="radio" name="CC1" id="radio4" value="option4" onclick="disableInputcc()">
                 <label class="form-check-label" for="radio4" onclick="disableInputcc()">
                     4. Wala ko kahibalo kung unsa ang CC ug wala koy nakita niini sa opisina. Tubaga og 'N/A' sa CC2 ug CC3.
                 </label>

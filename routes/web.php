@@ -6,6 +6,8 @@ use App\Http\Controllers\ClientSurveyController;
 use App\Models\Location;
 use Illuminate\Support\Facades\Form;
 use Carbon\Carbon;
+use App\Models\ServiceQualityDimension;
+
 
 
 
@@ -25,6 +27,21 @@ Route::get('/', function () {
 });
 
 Route::get('/CitizenCharter', function () {
+
+    /*
+    $getTodayClients = ServiceQualityDimension::whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
+
+    $getClientFilledSqd1 = ServiceQualityDimension::whereNotNull('sqd0')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    $getClientFilledSqd5 = ServiceQualityDimension::whereNotNull('sqd5')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+
+    $getClientSqd1Evaluation = ServiceQualityDimension::whereNotNull('sqd0')->where('sqd0', '=', 'option1')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    $getClientSqd1Evaluation2 = ServiceQualityDimension::whereNotNull('sqd0')->where('sqd0', '=', 'option2')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    $getClientSqd1Evaluation3 = ServiceQualityDimension::where('sqd0', '!=', null)->where('sqd0', '=', 'option3')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    $getClientSqd1Evaluation4 = ServiceQualityDimension::where('sqd0', '!=', null)->where('sqd0', '=', 'option4')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    $getClientSqd1Evaluation5 = ServiceQualityDimension::where('sqd0', '!=', null)->where('sqd0', '=', 'option5')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+    */
+
     $locations = Location::all();
     $currentDate = Carbon::now()->format('Y-m-d');
     return view('plus', compact('locations', 'currentDate'));
