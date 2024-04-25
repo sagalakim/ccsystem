@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\ServiceQualityDimension;
 use App\Models\User;
 use Carbon\Carbon; //composer require nesbot/carbon
+use PDF;
 
 
 class ClientSurveyController extends Controller
@@ -173,4 +174,24 @@ public function sqd2post(Request $request){
             return redirect()->back();
         }
     }
+
+public function downloadpdf(){
+    /*
+        $liquidation = Liquidation::findOrFail($id);
+        $data = LiquidationData::where('liquidation_id', $liquidation->id)->get();
+        $date = Carbon::now();
+        $year = $date->year;
+        $info = [
+            'liquidation' => $liquidation,
+            'data' => $data,
+            'year' => $year
+        ];
+        */
+
+        //$pdf = Pdf::loadView('agent.download.liquidation', $info);
+        $pdf = PDF::loadView('prints.artaprint');
+        return $pdf->download('ARTA-test.pdf');
+}
+
+
 }

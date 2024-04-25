@@ -48,9 +48,15 @@ Route::get('/CitizenCharter', function () {
 })->name('citizencharter');
 
 Route::get('/Finish-Survey', [ClientSurveyController::class,'finish'])->name('finish');
+Route::get('/download', [ClientSurveyController::class,'downloadpdf'])->name('downloadpdf');
+
 
 Route::get('/admin-login', function () {
     return view('login');
+});
+
+Route::get('/print-preview', function () {
+    return view('prints.artaprint');
 });
 
 /*
