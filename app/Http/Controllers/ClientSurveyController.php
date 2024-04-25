@@ -8,7 +8,7 @@ use App\Models\Client;
 use App\Models\ServiceQualityDimension;
 use App\Models\User;
 use Carbon\Carbon; //composer require nesbot/carbon
-use PDF;
+use PDF; //composer require barryvdh/laravel-dompdf
 
 
 class ClientSurveyController extends Controller
@@ -190,6 +190,7 @@ public function downloadpdf(){
 
         //$pdf = Pdf::loadView('agent.download.liquidation', $info);
         $pdf = PDF::loadView('prints.artaprint');
+        $pdf->setPaper('Legal', 'Portrait');
         return $pdf->download('ARTA-test.pdf');
 }
 

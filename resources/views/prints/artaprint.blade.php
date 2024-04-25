@@ -51,12 +51,12 @@
 
         <div class="card" style="margin-top:-100px;">
             <div class="d-flex justify-content-between align-items-center">
-                <h6 style="margin-top:-30px; font-size:13px; margin-left:-120px;">Control No. _______</h6>
+                <h6 style="margin-top:-30px; font-size:15px; margin-left:-120px;">Control No. _______</h6>
                 <div class="d-flex align-items-center"> 
             <div class="text-center" style="margin-top:-30px;">
-                <p class="mb-0" style="font-size: 14px;">Republic of the Philippines</p>
-                <h6 class="mb-5" style="font-size: 14px;">DEPARTMENT OF LABOR AND EMPLOYMENT</h6>
-                <h6 class="mb-0" style="font-size: 14px; margin-top:-35px">HELP US SERVE YOU BETTER!</h6>
+                <p class="mb-0" style="font-size: 16px;">Republic of the Philippines</p>
+                <h6 class="mb-5" style="font-size: 16px;">DEPARTMENT OF LABOR AND EMPLOYMENT</h6>
+                <h6 class="mb-0" style="font-size: 16px; margin-top:-35px">HELP US SERVE YOU BETTER!</h6>
             </div>
         </div>
                 <div class="card m-2">
@@ -137,7 +137,7 @@
 
         </div>
 
-        <div style="font-family: Arial, sans-serif; font-size: 13px; width:770px; margin-left:-140px; margin-top:-10px;">
+        <div style="font-family: Arial, sans-serif; font-size: 12px; width:770px; margin-left:-140px; margin-top:-10px;">
                 <p class="m-0">Instructions: Check mark (/) your answer to the Citizen's Charter (CC) questions. Citizen's Charter is an official document that reflects the services of a government agency/office including requirements, fees, and processing time among others. (Lagyan ng markang tsek (/) ang iyong sagot sa mga katanungan ukol sa Citizen's Charter (CC). Ang Citizen's Charter ay isang opisyal na dokumento na sumasalamin sa mga serbisyo ng isang ahensya o opisina ng gobyerno kasama na ang kanilang mga kinakailangan, bayad, at ang oras ng pagpro-proseso).</p>    
             </div>
         </div>
@@ -170,7 +170,7 @@
                 </label>
             </div>
             
-            <div style="font-family: Arial, sans-serif; font-size: 13px; width:770px; margin-left:0px; margin-top:0px;">
+            <div style="font-family: Arial, sans-serif; font-size: 12px; width:770px; margin-left:0px; margin-top:0px;">
             <p class="font-weight-bold">CC2     If aware of CC (answered in 1-3 of CC1), would you say that the CC of this office was...? (Kung alam mo ang CC (kung ang sagot mo ay nasa 1-3 ng CC1), masasabi mo ba na ang CC ng opisinang ito ay...?)</p>
             <div class="form-check ms-4" style="margin-top:-10px;">
                 <input style="margin-left:-10px;" class="" type="checkbox" name="CC2" id="radio5" value="option1">
@@ -204,7 +204,7 @@
             </div>
 
             
-            <div style="font-family: Arial, sans-serif; font-size: 13px; width:770px; margin-left:0px; margin-top:0px;">
+            <div style="font-family: Arial, sans-serif; font-size: 12px; width:770px; margin-left:0px; margin-top:0px;">
             <p class="font-weight-bold">CC3     If aware of CC (answered codes 1-3 of CC1), how much did the CC help you in your transaction? (Kung batid mo ang CC (kung ang sagot mo ay nasa code 1-3 ng CC1), gaano nakatulong ang CC sa iyong transaksyon?)</p>
             <div class="form-check ms-4" style="margin-top:-10px;">
                 <input style="margin-left:-10px;" class="" type="checkbox" name="CC3" id="radio10" value="option1">
@@ -236,30 +236,32 @@
 
     <div class="row ">
             <div class="col-md-12">
-                <div style="font-family: Arial, sans-serif; font-size: 13px; width:770px; margin-left:-140px; ">
+                <div style="font-family: Arial, sans-serif; font-size: 12px; width:770px; margin-left:-140px; ">
                     <p class="m-0 font-weight-bold">INSTRUCTIONS:</p>
                 </div>
             </div>
             <div class="col-md-12">
-                <div style="font-family: Arial, sans-serif; font-size: 13px; width:770px; margin-left:-140px; margin-top:0px;">
+                <div style="font-family: Arial, sans-serif; font-size: 12px; width:770px; margin-left:-140px; margin-top:0px;">
                     <p class="m-0">For SQD 0-8, please put a check (/) on the column that best corresponds to your answer. (Para sa SQD 0-8, pakilagyan ng markang tsek (/) ang hanay na pinakatumutugma sa inyong sagot.)</p>
                 </div>
             </div>
         </div>
 
-        <div class="row mt-4">
-            <div class="col-md-12">
+        <div class="row mt-4" style="position:absolute">
+            <div class="col-md-6">
              <div class="table-responsive">
-                <table class="table" style="font-size: 13px; width:770px; margin-left:-140px; margin-top:-10px;">
+                <table class="table align-items-start align-content-center" style="font-size: 9px; width:770px; margin-left:-140px; margin-top:-10px;">
                     <thead>
-                        <tr>
-                            <th scope="col" class="text-center" >Service Quality Dimension (SQD)</th>
-                            <th scope="col" class="text-center" > <span class="emoji" style="font-size: 2em;">&#x1F614; </span><br>Strongly Disagree (Lubos na hindi sumasang-ayon)</th>
-                            <th scope="col" class="text-center" > <span class="emoji" style="font-size: 2em;">&#x1F641; </span><br>Disagree (Hindi sumasang-ayon)</th>
-                            <th scope="col" class="text-center" > <span class="emoji" style="font-size: 2em;">&#128528; </span><br>Neither Agree nore Disagree (Sumasangy-ayon na hindi rin sumasang-ayon)</th>
-                            <th scope="col" class="text-center" > <span class="emoji" style="font-size: 2em;">&#128578; </span><br>Agree (Sumasang-ayon)</th>
-                            <th scope="col" class="text-center" > <span class="emoji" style="font-size: 2em;">&#128522; </span><br>Strongly Agree (Lubos na sumasang-ayon)</th>
-                            <th scope="col" class="text-center" ><br>N/A (Hindi Na-aangkop)</th>
+                        <tr style="font-size: 1em">
+                        <th scope="col" style="text-align: center;width:500px;">Service Quality Dimension (SQD)</th>
+                            <th scope="col" class="text-center align-content-start justify-content-center "  > <span class="emoji" style="font-size: 2em;">&#x1F614; </span><br> Kusog nga Dili Mouyon</th>
+                            <th scope="col" class="text-center align-content-start justify-content-center"  > <span class="emoji" style="font-size: 2em;">&#x1F641; </span><br> Dili mouyon </th>
+                            <th scope="col" class="text-center align-content-start justify-content-center" style="width:70px;align-content:flex-start;"> <span class="emoji" style="font-size: 2em;width:260px">&#128528; </span><br> Dili mouyon o dili mouyon </th>
+                            <th scope="col" class="text-center align-content-start justify-content-center" > <span class="emoji" style="font-size: 2em;">&#128578; </span><br> Uyon </th>
+                            <th scope="col" class="text-center align-content-start justify-content-center" > <span class="emoji" style="font-size: 2em;">&#128522; </span><br>Uyon kaayo </th>
+                            <th scope="col" class="text-center align-content-start justify-content-center"> N/A (Hindi Na-aangkop)</th>
+                            <!-- <th  scope="col" class="text-center" ><br>N/A (Hindi Na-aangkop)</th> -->
+                       
                         </tr>
                     </thead>
                     <tbody style="font-size:10px;">
@@ -354,11 +356,12 @@
                     
                     </tbody>
                 </table>
+        <p class="text-left" style="text-align:left;margin-left:-140px">Suggestions on how we can further improve services (optional). (Mga mungkahi kung paano namin mapapabuti ang mga serbisyo)</p>
+
 </div>
             </div>
         </div>
 
-        <p>Suggestions on how we can further improve services (optional). (Mga mungkahi kung paano namin mapapabuti ang mga serbisyo)</p>
         <hr>
         <hr>
         <hr>
