@@ -32,9 +32,6 @@
                         <form class="form-inline mr-auto" target="_self">
                           
                         </form> 
-                        <form action="download" method="GET">
-                          <button class="btn btn-light action-button" type="submit">Print</button>
-                        </form>
                         <form action="admin-login" method="GET" class="menu">  
                         <button class="btn btn-light action-button " data-toggle="modal" data-target="#exampleModal" type="button">Language</button >
                         <button class="btn btn-light action-button" type="submit">Admin</button>
@@ -59,7 +56,7 @@
         <p class="display-6 mb-0">Regional Office No. X</p>
         <p class="display-6 mb-0">Northern Mindanao</p>
         <p class="display-4 mb-0">Misamis Oriental Provincial Field Office</p>
-        <form action = "CitizenCharter" method="Get"   >
+        <form action = "CitizenCharter-tagalog" method="Get"   >
           <button class="btn btn-primary btn-lg action-button" style = "background-color:transparent;border-radius:50px" type="submit" >Next</button>
         <form>
       </div>
@@ -68,11 +65,7 @@
     <h2 class="h3 font-weight-bold">Client Satisfaction Measurement</h2>
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <p class="display-7 text-light">Kini nga Client Satisfaction Measurement (CSM) nagsubay 
-                          sa kasinatian sa kustomer sa mga opisina sa gobyerno. Ang imong feedback sa imong bag-o 
-                          lang nahuman nga transaksyon makatabang niini nga opisina sa paghatag ug mas maayong serbisyo. 
-                          Ang personal nga impormasyon nga gipaambit pagkatapigan nga kompidensyal ug kanunay kang adunay
-                           kapilian nga dili motubag niini nga porma.</p>
+            <p class="display-7 text-light">Itong Client Satisfaction Measurement (CSM) ay sumusubaybay sa karanasan ng customer sa opisina ng gobyerno. Ang iyong feedback sa natapos kamakailan lang na transaksyon ay makakatulong sa opisinang ito para makapagbigay ng mas mahusay na serbisyo. Ang personal na impormasyon na ibinahagi ay mananatiling kumpidensyal at ikaw ay laging may opsyon na hindi sagutan ang form na ito</p>
         </div>
     </div>
 </div>

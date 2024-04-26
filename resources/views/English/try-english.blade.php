@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  @include('languagemodal')
+@include('languagemodal')
     <div>
         
             <div style="background: url(https://bootstrapious.com/i/snippets/sn-static-header/background.jpg)" class="bg-cover text-white " >
@@ -32,9 +32,6 @@
                         <form class="form-inline mr-auto" target="_self">
                           
                         </form> 
-                        <form action="download" method="GET">
-                          <button class="btn btn-light action-button" type="submit">Print</button>
-                        </form>
                         <form action="admin-login" method="GET" class="menu">  
                         <button class="btn btn-light action-button " data-toggle="modal" data-target="#exampleModal" type="button">Language</button >
                         <button class="btn btn-light action-button" type="submit">Admin</button>
@@ -59,7 +56,7 @@
         <p class="display-6 mb-0">Regional Office No. X</p>
         <p class="display-6 mb-0">Northern Mindanao</p>
         <p class="display-4 mb-0">Misamis Oriental Provincial Field Office</p>
-        <form action = "CitizenCharter" method="Get"   >
+        <form action = "CitizenCharter-english" method="Get"   >
           <button class="btn btn-primary btn-lg action-button" style = "background-color:transparent;border-radius:50px" type="submit" >Next</button>
         <form>
       </div>
@@ -68,16 +65,11 @@
     <h2 class="h3 font-weight-bold">Client Satisfaction Measurement</h2>
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <p class="display-7 text-light">Kini nga Client Satisfaction Measurement (CSM) nagsubay 
-                          sa kasinatian sa kustomer sa mga opisina sa gobyerno. Ang imong feedback sa imong bag-o 
-                          lang nahuman nga transaksyon makatabang niini nga opisina sa paghatag ug mas maayong serbisyo. 
-                          Ang personal nga impormasyon nga gipaambit pagkatapigan nga kompidensyal ug kanunay kang adunay
-                           kapilian nga dili motubag niini nga porma.</p>
+            <p class="display-7 text-light">This Client Satisfaction Measurement (CSM) tracks the customer experience of government offices. Your feedback on your recently concluded transaction will help this office provide better service. Personal information shared will be kept confidential, and you always have the option not to answer this form.</p>
         </div>
     </div>
 </div>
 <!-- </div> -->
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
