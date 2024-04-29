@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <link rel="icon" href="images/DOLE_picture.ico" type="image/x-icon">
+
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -197,7 +199,7 @@
         </li>
         <!--sidebar items-->
         <li class="sidebar-item">
-          <a href="#" class="sidebar-link">
+          <a href="/Admin/Dashboard" class="sidebar-link">
             <i class="fa-solid fa-list pe-2"></i>
             Dashboard
           </a>
@@ -278,12 +280,12 @@
           <button type="button" class="btn btn-primary btn-sm align-self-end text-end">Print Results</button>
         </div>
         <!--for dropdown button for days total-->
-        <div class="btn-group">
+        <div class="btn-group ml-4">
           <button class="btn btn-primary btn-sm dropdown-toggle" id="dropdownMenuButton" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Selects
+            Today
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" id="day">Day</a>
+            <a class="dropdown-item" href="#" id="day">Yesterday</a>
             <a class="dropdown-item" href="#" id="week">Week</a>
             <a class="dropdown-item" href="#" id="month">Month</a>
             <a class="dropdown-item" href="#" id="year">Year</a>
@@ -298,9 +300,9 @@
                         <div class="card-body p-0 d-flex flex-fill">
                           <div class="row g-0 w-100  ">
                             <div class="col-6">
-                              <div class="p-3 m-1">
+                              <div class="p-3 m-6">
                                 <h4>Welcome back, Admin</h4>
-                                <p class="mb-0">Admin dashboard, HIHI</p>
+                                <p class="mb-0">See today's analysis</p>
                               </div>
                             </div>
                             <div class="col-6 align-self-end text-end">
@@ -344,12 +346,12 @@
               <div class="card-body p-0 d-flex flex-fill">
                 <div class="row g-0 w-100 ">
                   <div class="col-6">
-                    <div class="p-3 m-1">
+                    <div class="p-3 m-6">
                     <h4 class="mb-2">
-                      128
+                      Total Survey
                     </h4>
                     <p class="mb-2">
-                      Total survey
+                    {{$getTodayClients->count()}} clients
                     </p>
                     <div class="mb-0">
                       
@@ -368,16 +370,16 @@
           </div>
         <!--end the total with pic-->
         <!--for non org bar graph-->
-        <div class="d-flex   ">
+        <div class="d-flex  align-items-start align-content-center " >
            
   
         
         <div class="row ">
 
           <div class="col-12 col-md-12 ">
-            <div class="card flex-fill border-0 people">
+            <div class="card border-0 people">
               <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
-                      Non Org
+                      Association
                     </h7>
               <div class="card-body p-0 d-flex flex-fill">
                 <canvas id="nonbarChart" width="400" height="160"></canvas>
@@ -392,9 +394,9 @@
         <!--for org bar graph-->
       
           <div class="col-12 col-md-12">
-            <div class="card flex-fill border-0 people">
+            <div class="card border-0 people">
                     <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
-                      Org
+                      Others
                     </h7>
               <div class="card-body p-0 d-flex flex-fill">
                 <canvas id="orgbarChart" width="400" height="160"></canvas>
@@ -407,9 +409,9 @@
           </div>
 
         <div class="col-12 col-md-4 d-flex">
-        <div class="card" style="width: 100%;">
+        <div class="card">
         <div class="card-body ">
-          <div style="justify-content:center;align-content:center;align-items:center;" class="row justify-content-between d-flex min-h-0  justify-content-center align-content-center align-items-center">
+          <div style="justify-content:center;align-content:center;align-items:center;" class="row justify-content-between justify-content-center align-content-center align-items-center">
           <h7 class="mt-1 mb-1 align-self-center text-center font-weight-bold">
                             Citizen's Charter
                           </h7>
@@ -439,36 +441,45 @@
     </div>
     <!--table-->
 <div class="col-12 col-md-12 d-flex">
-        <div class="card col-md-12" >
+        <div class="card col-md-12" style="overflow-y:scroll;max-height:200px" >
         <div class="card-body ">
-<table class="table ">
+<table class="table " >
   <thead class="thead-dark">
-    <tr>
+    <tr >
       <th scope="col">Date</th>
       <th scope="col">Client Type</th>
       <th scope="col">Region of Residence</th>
       <th scope="col">Service Availed</th>
+      <th scope="col">Print</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">4/19/2024</th>
-      <td>Business</td>
-      <td>Jasaan</td>
-      <td>Consultation</td>
-    </tr>
-    <tr>
-      <th scope="row">4/19/2024</th>
-      <td>Citizen</td>
-      <td>Salay</td>
-      <td>Organization</td>
-    </tr>
-    <tr>
-      <th scope="row">4/19/2024</th>
-      <td>Government</td>
-      <td>Lagonglong</td>
-      <td>Received papers</td>
-    </tr>
+    @if($clientList->count() > 0)
+      @foreach($clientList as $client)
+        <tr>
+          <th scope="row">{{date('M d, Y', strtotime($client->ccs->date))}}</th>
+          @if($client->client_type == 'ciziten')
+          <td>Citizen</td>
+          @elseif($client->client_type == 'governement')
+          <td>Government</td>
+          @else
+          <td>Business</td>
+          @endif
+          <td>{{$client->region_of_residence}}</td>
+          <td>{{$client->service_availed}}</td>
+          <td>
+              <a href="{{route('download', $client->sqd->id)}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+                  <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                  <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1"/>
+                </svg>
+              </a>
+          </td>
+        </tr>
+      @endforeach
+    @else
+    <tr><td colspan="4" style="text-align:center">No Clients Yet</td><tr>
+    @endif
   </tbody>
 </table>
 </div>
@@ -523,47 +534,47 @@
 
   // Data for the non org bar chart
   var data = {
-    labels: ['Question 0', 'Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
+    labels: ['Question 0', 'Question 1', 'Question 2', 'Question 3', 'Question 4'],
     datasets: [{
       label: 'Dili jd muoyon',
-      backgroundColor: '#46d8d5',
-      borderColor: '#46d8d5',
+      backgroundColor: '#ff0000',
+      borderColor: '#ff0000',
       borderWidth: 1,
-      data: [4, 8, 3, 5, 6] // Example data for Option A
+      data: [{{$getClientSqd1Evaluation->count()}}, {{$getClientSqd2Evaluation->count()}}, {{$getClientSqd3Evaluation->count()}}, {{$getClientSqd4Evaluation->count()}}, {{$getClientSqd5Evaluation->count()}}] // Example data for Option A
     }, {
       label: 'Dili muoyon',
-      backgroundColor: '#182390',
-      borderColor: '#182390',
+      backgroundColor: '#9900cc',
+      borderColor: '#9900cc',
       borderWidth: 1,
-      data: [4, 3, 6, 2, 8,6] // Example data for Option B
+      data: [{{$getClientSqd1Evaluation2->count()}}, {{$getClientSqd2Evaluation2->count()}}, {{$getClientSqd3Evaluation2->count()}}, {{$getClientSqd4Evaluation2->count()}}, {{$getClientSqd5Evaluation2->count()}}] // Example data for Option B
     },
     {
       label: 'Uyon o di muoyon',
       backgroundColor: '#f5e132',
       borderColor: '#f5e132',
       borderWidth: 1,
-      data: [5, 3, 7, 4, 5,6] // Example data for Option B
+      data: [{{$getClientSqd1Evaluation3->count()}}, {{$getClientSqd2Evaluation3->count()}}, {{$getClientSqd3Evaluation3->count()}}, {{$getClientSqd4Evaluation3->count()}}, {{$getClientSqd5Evaluation3->count()}}] // Example data for Option B
     },
     {
       label: 'Uyon',
-      backgroundColor: '#FF0000',
-      borderColor: '#FF0000',
+      backgroundColor: '#182390',
+      borderColor: '#182390',
       borderWidth: 1,
-      data: [3, 5, 2, 7, 6,4] // Example data for Option A
+      data: [{{$getClientSqd1Evaluation4->count()}}, {{$getClientSqd2Evaluation4->count()}}, {{$getClientSqd3Evaluation4->count()}}, {{$getClientSqd4Evaluation4->count()}}, {{$getClientSqd5Evaluation4->count()}}] // Example data for Option A
     },
     {
       label: 'Uyon kaayo',
       backgroundColor: '#00FF00',
       borderColor: '#00FF00',
       borderWidth: 1,
-      data: [6, 8, 2, 3, 6,5] // Example data for Option A
+      data: [{{$getClientSqd1Evaluation5->count()}}, {{$getClientSqd2Evaluation5->count()}}, {{$getClientSqd3Evaluation5->count()}}, {{$getClientSqd4Evaluation5->count()}}, {{$getClientSqd5Evaluation5->count()}}] // Example data for Option A
     },
     {
       label: 'N/A',
       backgroundColor: '#FFA500',
       borderColor: '#FFA500',
       borderWidth: 1,
-      data: [4, 3, 6, 2, 8,6,6] // Example data for Option A
+      data: [0, 0, 0, 0, 0] // Example data for Option A
     }
   ]
   };
@@ -591,47 +602,47 @@
 
   // Data for the org bar chart
   var data = {
-    labels: ['Question 6', 'Question 7', 'Question 8'],
+    labels: ['Question 5', 'Question 6', 'Question 7', 'Question 8'],
     datasets: [{
       label: 'Dili jd muoyon',
-      backgroundColor: '#46d8d5',
-      borderColor: '#46d8d5',
+      backgroundColor: '#ff0000',
+      borderColor: '#ff0000',
       borderWidth: 1,
-      data: [4, 8, 3, 5, 6] // Example data for Option A
+      data: [{{$getClientSqd6Evaluation->count()}}, {{$getClientSqd7Evaluation->count()}}, {{$getClientSqd8Evaluation->count()}}, {{$getClientSqd9Evaluation->count()}}] // Example data for Option A
     }, {
       label: 'Dili muoyon',
-      backgroundColor: '#182390',
-      borderColor: '#182390',
+      backgroundColor: '#9900cc',
+      borderColor: '#9900cc',
       borderWidth: 1,
-      data: [4, 3, 6, 2, 8,6] // Example data for Option B
+      data: [{{$getClientSqd6Evaluation2->count()}}, {{$getClientSqd7Evaluation2->count()}}, {{$getClientSqd8Evaluation2->count()}}, {{$getClientSqd9Evaluation2->count()}}] // Example data for Option B
     },
     {
       label: 'Uyon o di muoyon',
       backgroundColor: '#f5e132',
       borderColor: '#f5e132',
       borderWidth: 1,
-      data: [5, 3, 7, 4, 5,6] // Example data for Option B
+      data: [{{$getClientSqd6Evaluation3->count()}}, {{$getClientSqd7Evaluation3->count()}}, {{$getClientSqd8Evaluation3->count()}}, {{$getClientSqd9Evaluation3->count()}}] // Example data for Option B
     },
     {
       label: 'Uyon',
-      backgroundColor: '#FF0000',
-      borderColor: '#FF0000',
+      backgroundColor: '#182390',
+      borderColor: '#182390',
       borderWidth: 1,
-      data: [3, 5, 2, 7, 6,4] // Example data for Option A
+      data: [{{$getClientSqd6Evaluation4->count()}}, {{$getClientSqd7Evaluation4->count()}}, {{$getClientSqd8Evaluation4->count()}}, {{$getClientSqd9Evaluation4->count()}}] // Example data for Option A
     },
     {
       label: 'Uyon kaayo',
       backgroundColor: '#00FF00',
       borderColor: '#00FF00',
       borderWidth: 1,
-      data: [6, 8, 2, 3, 6,5] // Example data for Option A
+      data: [{{$getClientSqd6Evaluation5->count()}}, {{$getClientSqd7Evaluation5->count()}}, {{$getClientSqd8Evaluation5->count()}}, {{$getClientSqd9Evaluation5->count()}}] // Example data for Option A
     },
     {
       label: 'N/A',
       backgroundColor: '#FFA500',
       borderColor: '#FFA500',
       borderWidth: 1,
-      data: [4, 3, 6, 2, 8,6,6] // Example data for Option A
+      data: [0, 0, 0, 0] // Example data for Option A
     }
   ]
   };
@@ -681,7 +692,7 @@ const pieChart1 = new Chart(ctx1, {
        '4.  I do not know what a CC is'],
     datasets: [{
       label: 'Citizen Charter',
-      data: [2112, 2343, 2545, 3423],
+      data: [{{$CC1a->count()}}, {{$CC1b->count()}}, {{$CC1c->count()}}, {{$CC1d->count()}}],
       backgroundColor: [
         'rgba(63, 81, 181, 0.5)',
         'rgba(77, 182, 172, 0.5)',
@@ -708,10 +719,10 @@ const pieChart2 = new Chart(ctx2, {
   type: 'pie',
   data: {
     labels: ['1. Easy to see', '2. Somewhat easy to see',
-     '3. Difficult to see', '4. Not visible at all', '5. N/A'],
+     '3. Difficult to see', '4. Not visible at all', '5. Not Applicable'],
     datasets: [{
       label: 'Citizen Charter',
-      data: [2112, 2343, 2545, 3423, 2365],
+      data: [{{$CC2a->count()}}, {{$CC2b->count()}}, {{$CC2c->count()}}, {{$CC2d->count()}}, {{$CC2e->count()}}],
       backgroundColor: [
         'rgba(63, 81, 181, 0.5)',
         'rgba(77, 182, 172, 0.5)',
@@ -738,10 +749,10 @@ const ctx3 = document.getElementById('pie-chart-3').getContext('2d');
 const pieChart3 = new Chart(ctx3, {
   type: 'pie',
   data: {
-    labels: ['1. Helped very much', '2. Somewhat help', '3. Did not help', '4. N/A'],
+    labels: ['1. Helped very much', '2. Somewhat help', '3. Did not help', '4. Not Applicable'],
 datasets: [{
       label: 'Citizen Charter',
-      data: [2112, 2343, 2545, 3423],
+      data: [{{$CC3a->count()}}, {{$CC3b->count()}}, {{$CC3c->count()}}, {{$CC3d->count()}}],
       backgroundColor: ['rgba(63, 81, 181, 0.5)',
         'rgba(77, 182, 172, 0.5)',
         'rgba(66, 133, 244, 0.5)',

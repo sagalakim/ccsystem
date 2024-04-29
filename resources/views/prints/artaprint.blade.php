@@ -111,7 +111,7 @@
                 </label>
                 @endif
 
-                @if ($sqd->client->client_type == "government")
+                @if ($sqd->client->client_type == "governement")
                 <input checked style="margin-left:30px;" type="checkbox" id="GovernCheckbox">
                 <label class="" for="GovernCheckbox">
                     Government (Employee or another agency)

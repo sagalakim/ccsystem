@@ -32,9 +32,7 @@
                         <form class="form-inline mr-auto" target="_self">
                           
                         </form> 
-                        <form action="download" method="GET">
-                          <button class="btn btn-light action-button" type="submit">Print</button>
-                        </form>
+                        
                         <form action="admin-login" method="GET" class="menu">  
                         <button class="btn btn-light action-button " data-toggle="modal" data-target="#exampleModal" type="button">Language</button >
                         <button class="btn btn-light action-button" type="submit">Admin</button>
