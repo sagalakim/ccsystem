@@ -9,7 +9,6 @@
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="resources/css/app.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     
@@ -167,7 +166,7 @@
   
   /*sidebar toggle */
   #sidebar.collapsed {
-    margin-left: -264px;
+    margin-left: -252px;
   }
 
   .btn-group {
@@ -212,10 +211,7 @@
           Graph</a>
           <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
             <li class="sidebar-item">
-              <a href="#" class="sidebar-link">Bar Graph</a>
-            </li>
-            <li class="sidebar-item">
-              <a href="#" class="sidebar-link">Line Graph</a>
+              <a href="#" class="sidebar-link">Evaluation Percentage</a>
             </li>
           </ul>
         </li>
@@ -518,6 +514,10 @@
 
 <!-- Your custom script -->
 <script>
+  const sidebarToggle = document.querySelector('#sidebar-toggle');
+  sidebarToggle.addEventListener('click', function(){
+    document.querySelector('#sidebar').classList.toggle('collapsed');
+  })
   // Function to handle dropdown item click
   function handleDropdownItemClick(event) {
     // Get the text content of the clicked dropdown item

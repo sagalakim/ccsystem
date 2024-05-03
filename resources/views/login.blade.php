@@ -437,11 +437,18 @@ Credits
           <label for='user'>E-MAIL</label>
           <input type='text' id='user' name='email' title='Username' />
           <span id='valida' class='i i-warning'></span>
+          
         </p>
       	  <p class='field'>
           <label for='pass'>PASSWORD</label>
           <input type='password' id='pass' name='password' title='Password' />
           <span id='valida' class='i i-close'></span>
+          @if ($errors->get('email'))
+            <div class="alert alert-danger" style="margin-bottom:-20px; font-size:14px; height:40px; vertical-align:top">
+                Wrong Credentials
+            </div>
+          @endif
+
         </p>
 
           <label class='checkbox'>
@@ -450,6 +457,11 @@ Credits
 
         	<input type='submit' id='do_login' value='LOGIN' title='Get Started' />
         </form>
+              @if (session('error'))
+                <div class="alert alert-success">
+                    {{ session('error') }}
+                </div>
+              @endif
       </div>
     </div>
   </div>
