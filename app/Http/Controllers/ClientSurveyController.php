@@ -48,6 +48,7 @@ class ClientSurveyController extends Controller
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->userinput,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -59,6 +60,7 @@ class ClientSurveyController extends Controller
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->service,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -181,6 +183,7 @@ public function sqd2englishpost(Request $request){
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->userinput,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -192,6 +195,7 @@ public function sqd2englishpost(Request $request){
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->service,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -314,6 +318,7 @@ public function sqd2tagalogpost(Request $request){
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->userinput,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -325,6 +330,7 @@ public function sqd2tagalogpost(Request $request){
             'age' => $request->age,
             'region_of_residence' => $request->address,
             'service_availed' => $request->service,
+            'status' => 'Pending',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -428,6 +434,28 @@ public function downloadpdf(ServiceQualityDimension $sqd){
         $sqd = ServiceQualityDimension::findOrFail($sqd->id);
         $client = Client::findOrFail($sqd->client->id);
         $cc = CcSurvey::findOrFail($sqd->cc->id);
+
+        $client->status = 'Printed';
+        $client->save();
+
+        $info = [
+            'sqd' => $sqd,
+            'client' => $client,
+            'cc' => $cc,
+        ];
+
+        $pdf = Pdf::loadView('prints.artaprint', $info);
+        $pdf->setPaper('Legal', 'Portrait');
+        return $pdf->download('ARTA-test.pdf');
+}
+
+public function clientdownloadpdf(ServiceQualityDimension $sqd){
+    set_time_limit(300);
+
+        $sqd = ServiceQualityDimension::findOrFail($sqd->id);
+        $client = Client::findOrFail($sqd->client->id);
+        $cc = CcSurvey::findOrFail($sqd->cc->id);
+
         $info = [
             'sqd' => $sqd,
             'client' => $client,

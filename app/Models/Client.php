@@ -16,7 +16,8 @@ class Client extends Model
         'sex',
         'age',
         'region_of_residence',
-        'service_availed'
+        'service_availed',
+        'status'
     ];
 
     public function ccs()

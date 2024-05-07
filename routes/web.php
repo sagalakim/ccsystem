@@ -36,8 +36,7 @@ Route::get('/CitizenCharter', function () {
 })->name('citizencharter');
 
 Route::get('/Finish-Survey', [ClientSurveyController::class,'finish'])->name('finish');
-Route::get('/download/{sqd}', [ClientSurveyController::class,'downloadpdf'])->name('download');
-
+Route::get('/client-download/{sqd}', [ClientSurveyController::class,'clientdownloadpdf'])->name('clientdownload');
 
 Route::get('/admin-login', function () {
     return view('login');
@@ -49,7 +48,12 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/Admin/Dashboard', [AdminController::class, 'home'])->name('home');
+    Route::get('/Admin/Yesterday-result', [AdminController::class, 'yesterday'])->name('yesterday');
+    Route::get('/Admin/Week-result', [AdminController::class, 'thisweek'])->name('thisweek');
+    Route::get('/Admin/Month-result', [AdminController::class, 'thismonth'])->name('thismonth');
+    Route::get('/Admin/Year-result', [AdminController::class, 'thisyear'])->name('thisyear');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/download/{sqd}', [ClientSurveyController::class,'downloadpdf'])->name('download');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

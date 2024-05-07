@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('age')->nullable();
             $table->string('region_of_residence')->nullable();
             $table->string('service_availed');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -34,3 +35,8 @@ return new class extends Migration
         Schema::dropIfExists('clients');
     }
 };
+
+/*
+ALTER TABLE clients
+ADD COLUMN status VARCHAR(255) AFTER service_availed;
+*/
