@@ -108,8 +108,8 @@
               <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
                       Association
                     </h7>
-              <div class="card-body p-0 d-flex flex-fill">
-                <canvas id="nonbarChart" width="400" height="160"></canvas>
+              <div class="card-body p-0 d-flex flex-fill justify-content-center">
+                <canvas id="nonbarChart" ></canvas>
               </div>
             </div>
         
@@ -125,8 +125,8 @@
                     <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
                       Others
                     </h7>
-              <div class="card-body p-0 d-flex flex-fill">
-                <canvas id="orgbarChart" width="400" height="160"></canvas>
+              <div class="card-body p-0 d-flex flex-fill justify-content-center">
+                <canvas id="orgbarChart" ></canvas>
               </div>
             
           </div>

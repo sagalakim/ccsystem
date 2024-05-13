@@ -7,6 +7,7 @@ use App\Models\ServiceQualityDimension;
 use Carbon\Carbon;
 use App\Models\Client;
 use App\Models\CcSurvey;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -656,5 +657,11 @@ class AdminController extends Controller
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
          'CC3a','CC3b','CC3c','CC3d'));
+    }
+
+    public function adminprofile(){
+        $user = Auth::user();
+
+        return view('admin.profile.adminprofile', compact('user'));
     }
 }

@@ -39,7 +39,11 @@ Route::get('/Finish-Survey', [ClientSurveyController::class,'finish'])->name('fi
 Route::get('/client-download/{sqd}', [ClientSurveyController::class,'clientdownloadpdf'])->name('clientdownload');
 
 Route::get('/admin-login', function () {
-    return view('login');
+    if(Auth::user()){
+        return redirect()->route('home');
+    }else{
+        return view('login');
+    }
 })->name('admin-login');
 
 Route::get('/dashboard', function () {
@@ -52,8 +56,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/Admin/Week-result', [AdminController::class, 'thisweek'])->name('thisweek');
     Route::get('/Admin/Month-result', [AdminController::class, 'thismonth'])->name('thismonth');
     Route::get('/Admin/Year-result', [AdminController::class, 'thisyear'])->name('thisyear');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/Admin/profile', [AdminController::class, 'adminprofile'])->name('admin.profile');
     Route::get('/download/{sqd}', [ClientSurveyController::class,'downloadpdf'])->name('download');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

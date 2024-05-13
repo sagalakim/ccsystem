@@ -185,14 +185,12 @@
   #welcomei.collapsed {
     margin-top:-50px;
     margin-left: -77px;
-    max-width: 280px;
-    min-width: 280px;
+    max-width: 200px;
+    min-width: 200px;
   }
   #welcomes.collapsed {
-    margin-top:-200px;
-    margin-left:-400px;
-    max-width: 230px;
-    min-width: 230px;
+    max-width: 190px;
+    min-width: 190px;
   }
 
   #wtext {
@@ -311,7 +309,7 @@
                 <img src="{{asset('images/cat.jpg')}}" class="avatar img-fluid rounded" alt="">
               </a>
               <div class="dropdown-menu dropdown-menu-end">
-              <form method="POST" action="{{ route('logout') }}">
+              <form method="GET" action="{{ route('admin.profile') }}">
                     @csrf
 
                     <x-dropdown-link class="dropdown-item" :href="route('logout')"

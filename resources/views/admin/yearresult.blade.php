@@ -39,34 +39,7 @@
                         </div>
                       </div>
                     </div>
-          <!--card for total
-          <div class="col-12 col-md-6 d-flex">
-            <div class="card flex-fill border-0">
-              <div class="card-body py-4">
-                <div class="d-flex align-items-start">
-                  <div class="flex-grow-1">
-                    <h4 class="mb-2">
-                      128
-                    </h4>
-                    <p class="mb-2">
-                      Total survey
-                    </p>
-                    <div class="mb-0">
-                      
-                      <span class="badge text-success me-2">
-                        +5%
-                      </span>
-                      
-                      <span class="text-muted">
-                        Since last week 
-                      </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        end sa card-->
+
         <!--for the total with pic-->
         <div class="col-12 col-md-6 d-flex" >
             <div class="card flex-fill border-0 people">
@@ -108,8 +81,8 @@
               <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
                       Association
                     </h7>
-              <div class="card-body p-0 d-flex flex-fill">
-                <canvas id="nonbarChart" width="400" height="160"></canvas>
+              <div class="card-body p-0 d-flex flex-fill justify-content-center">
+                <canvas id="nonbarChart" ></canvas>
               </div>
             </div>
         
@@ -125,8 +98,8 @@
                     <h7 class="mt-4 mb-3 align-self-center text-center font-weight-bold">
                       Others
                     </h7>
-              <div class="card-body p-0 d-flex flex-fill">
-                <canvas id="orgbarChart" width="400" height="160"></canvas>
+              <div class="card-body p-0 d-flex flex-fill justify-content-center">
+                <canvas id="orgbarChart" ></canvas>
               </div>
             
           </div>
