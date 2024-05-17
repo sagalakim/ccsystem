@@ -27,8 +27,7 @@
                 <!-- <img src="{{asset('images/DOLE_picture.png')}}" alt="Logo" width="30" height="24" class="ml-3 d-inline-block align-text-top">
                   <a class="navbar-brand" href="/">Department of Labor and Employment</a> -->
                   <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1" style="align-items:center"><span class="sr-only">Toggle navigation</span><span style="align-items:center" class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse "
-                        id="navcol-1"> 
+                    <div class="collapse navbar-collapse " id="navcol-1"> 
                         <form class="form-inline mr-auto" target="_self">
                           
                         </form> 
@@ -37,6 +36,7 @@
                         <button class="btn btn-light action-button " data-toggle="modal" data-target="#exampleModal" type="button">Language</button >
                         <button class="btn btn-light action-button" type="submit">Admin</button>
                         </form>
+                      </div>
                         
                 </div>
             </nav>

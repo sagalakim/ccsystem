@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function home(){
-        $getTodayClients = ServiceQualityDimension::whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+        $getTodayClients = Client::whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+        $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
+        $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
         //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
         $clientList = Client::whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->orderBy('status', 'asc')->orderBy('created_at', 'desc')->get();
         $getClientFilledSqd1 = ServiceQualityDimension::whereNotNull('sqd0')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
@@ -102,11 +104,13 @@ class AdminController extends Controller
          'getClientSqd9Evaluation','getClientSqd9Evaluation2','getClientSqd9Evaluation3','getClientSqd9Evaluation4','getClientSqd9Evaluation5',
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
-         'CC3a','CC3b','CC3c','CC3d'));
+         'CC3a','CC3b','CC3c','CC3d', 'getTodayFemaleClients', 'getTodayMaleClients'));
     }
 
     public function yesterday(){
-        $getTodayClients = ServiceQualityDimension::whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
+        $getTodayClients = Client::whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
+        $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
+        $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
         //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
         $clientList = Client::whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->orderBy('service_availed', 'asc')->get();
         $getClientFilledSqd1 = ServiceQualityDimension::whereNotNull('sqd0')->whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
@@ -194,11 +198,16 @@ class AdminController extends Controller
          'getClientSqd9Evaluation','getClientSqd9Evaluation2','getClientSqd9Evaluation3','getClientSqd9Evaluation4','getClientSqd9Evaluation5',
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
-         'CC3a','CC3b','CC3c','CC3d'));
+         'CC3a','CC3b','CC3c','CC3d', 'getTodayFemaleClients', 'getTodayMaleClients'));
     }
 
     public function thisweek(){
-        $getTodayClients = ServiceQualityDimension::where('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
+        $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfWeek()->setTimezone('Asia/Manila'))->get();
+        $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfWeek()->setTimezone('Asia/Manila'))->get();
+        
+        $getTodayClients = Client::where('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfWeek()->setTimezone('Asia/Manila'))->get();
         //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
         $clientList = Client::where('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
@@ -348,11 +357,16 @@ class AdminController extends Controller
          'getClientSqd9Evaluation','getClientSqd9Evaluation2','getClientSqd9Evaluation3','getClientSqd9Evaluation4','getClientSqd9Evaluation5',
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
-         'CC3a','CC3b','CC3c','CC3d'));
+         'CC3a','CC3b','CC3c','CC3d', 'getTodayFemaleClients', 'getTodayMaleClients'));
     }
 
     public function thismonth(){
-        $getTodayClients = ServiceQualityDimension::where('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
+        $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfMonth()->setTimezone('Asia/Manila'))->get();
+        $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfMonth()->setTimezone('Asia/Manila'))->get();
+        
+        $getTodayClients = Client::where('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfMonth()->setTimezone('Asia/Manila'))->get();
         //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
         $clientList = Client::where('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
@@ -502,11 +516,18 @@ class AdminController extends Controller
          'getClientSqd9Evaluation','getClientSqd9Evaluation2','getClientSqd9Evaluation3','getClientSqd9Evaluation4','getClientSqd9Evaluation5',
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
-         'CC3a','CC3b','CC3c','CC3d'));
+         'CC3a','CC3b','CC3c','CC3d', 'getTodayFemaleClients', 'getTodayMaleClients'));
     }
 
     public function thisyear(){
-        $getYearClients = ServiceQualityDimension::where('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
+        $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfYear()->setTimezone('Asia/Manila'))
+        ->get();
+        $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
+        ->where('created_at', '<=', Carbon::now()->endOfYear()->setTimezone('Asia/Manila'))
+        ->get();
+        
+        $getYearClients = Client::where('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfYear()->setTimezone('Asia/Manila'))
         ->get();        //{{$getTodayClients->count()}}           ->>Apply inside blade same as other variable
         $clientList = Client::where('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
@@ -656,7 +677,7 @@ class AdminController extends Controller
          'getClientSqd9Evaluation','getClientSqd9Evaluation2','getClientSqd9Evaluation3','getClientSqd9Evaluation4','getClientSqd9Evaluation5',
          'CC1a','CC1b','CC1c','CC1d',
          'CC2a','CC2b','CC2c','CC2d','CC2e',
-         'CC3a','CC3b','CC3c','CC3d'));
+         'CC3a','CC3b','CC3c','CC3d', 'getTodayFemaleClients', 'getTodayMaleClients'));
     }
 
     public function adminprofile(){

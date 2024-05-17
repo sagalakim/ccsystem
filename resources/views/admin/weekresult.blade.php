@@ -4,7 +4,6 @@
 <div class="container-fluid">
         <div class="mb-1 d-flex justify-content-between">
           <h4>This Week's results</h4>
-          <button type="button" class="btn btn-primary btn-sm align-self-end text-end">Print Results</button>
         </div>
         <!--for dropdown button for days total-->
         <div class="btn-group ml-4">
@@ -82,9 +81,26 @@
                     </p>
                     <div class="mb-0">
                       
+                    @if($getTodayFemaleClients->count() > 1)
                       <span id="stext2" class="text-muted">
-                        This Week 
+                        {{$getTodayFemaleClients->count()}} females
                       </span>
+                      @else
+                      <span id="stext2" class="text-muted">
+                        {{$getTodayFemaleClients->count()}} female
+                      </span>
+                      @endif
+                      
+                      <br>
+                      @if( $getTodayMaleClients->count() > 1)
+                      <span id="stext2" class="text-muted">
+                        {{$getTodayMaleClients->count()}} males
+                      </span>
+                      @else
+                      <span id="stext2" class="text-muted">
+                        {{$getTodayMaleClients->count()}} male
+                      </span>
+                      @endif
                   </div>
                     </div>
                   </div>

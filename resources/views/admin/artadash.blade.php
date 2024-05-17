@@ -270,17 +270,6 @@
           </a>
         </li>
         <!----> <!--for graph -->
-        <li class="sidebar-item">
-          <a href="#"class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse" 
-          aria-expanded="false">
-          <i class="fa-solid fa-chart-line pe-2"></i>
-          Graph</a>
-          <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-            <li class="sidebar-item">
-              <a href="#" class="sidebar-link">Evaluation Percentage</a>
-            </li>
-          </ul>
-        </li>
         <!--same sa header
         <li class="sidebar-header">
           Multi Level Menu
