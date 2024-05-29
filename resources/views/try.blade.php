@@ -102,12 +102,7 @@
     
   }
 }
-.treed img:hover {
-    transform:  rotateZ(-360deg);
-    transform-style: preserve-3d; /* Ensures child elements are rendered in 3D space */
-      transition: transform .5s;
-     /* Rotate the image on the Y-axis when hovered */
-  }
+
 
   .itreed img {
     width: 100%;

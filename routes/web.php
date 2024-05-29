@@ -8,6 +8,7 @@ use App\Models\Location;
 use Illuminate\Support\Facades\Form;
 use Carbon\Carbon;
 use App\Models\ServiceQualityDimension;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 
 
@@ -58,7 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/Admin/Year-result', [AdminController::class, 'thisyear'])->name('thisyear');
     Route::get('/Admin/profile', [AdminController::class, 'adminprofile'])->name('admin.profile');
     Route::get('/download/{sqd}', [ClientSurveyController::class,'downloadpdf'])->name('download');
+    Route::get('/create-user', [AdminController::class,'usercreate'])->name('usercreate');
 
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

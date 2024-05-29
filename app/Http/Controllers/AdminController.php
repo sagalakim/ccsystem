@@ -685,4 +685,8 @@ class AdminController extends Controller
 
         return view('admin.profile.adminprofile', compact('user'));
     }
+
+    public function usercreate(){
+        return view('admin.usercreate');
+    }
 }

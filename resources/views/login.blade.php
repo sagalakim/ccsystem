@@ -167,11 +167,7 @@ Login Box
   height:40px; width:40px; margin-left:20px;
   transition: width 0.5s, height 0.5s;
 }
-.box-login-title a img:hover{
-  width: 50px; /* or any desired width */
-  height: 50px; /* or any desired height */
-  margin: 0px;   
-}
+
 .box-login {
   position: relative;
   top: -4px;
