@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function home(){
+        $delclients = Client::doesntHave('sqds')->get();
+
+        // Delete each client
+        foreach ($delclients as $client) {
+            $client->delete();
+        }
+
         $getTodayClients = Client::whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
         $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
         $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', Carbon::today()->setTimezone('Asia/Manila'))->get();
@@ -108,6 +115,13 @@ class AdminController extends Controller
     }
 
     public function yesterday(){
+        $delclients = Client::doesntHave('sqds')->get();
+
+        // Delete each client
+        foreach ($delclients as $client) {
+            $client->delete();
+        }
+
         $getTodayClients = Client::whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
         $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
         $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', Carbon::yesterday()->setTimezone('Asia/Manila'))->get();
@@ -202,6 +216,13 @@ class AdminController extends Controller
     }
 
     public function thisweek(){
+        $delclients = Client::doesntHave('sqds')->get();
+
+        // Delete each client
+        foreach ($delclients as $client) {
+            $client->delete();
+        }
+
         $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfWeek()->setTimezone('Asia/Manila'))->get();
         $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', '>=', Carbon::now()->startOfWeek()->setTimezone('Asia/Manila'))
@@ -361,6 +382,12 @@ class AdminController extends Controller
     }
 
     public function thismonth(){
+        $delclients = Client::doesntHave('sqds')->get();
+
+        // Delete each client
+        foreach ($delclients as $client) {
+            $client->delete();
+        }
         $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfMonth()->setTimezone('Asia/Manila'))->get();
         $getTodayMaleClients = Client::where('sex', '=', 'male')->whereDate('created_at', '>=', Carbon::now()->startOfMonth()->setTimezone('Asia/Manila'))
@@ -520,6 +547,12 @@ class AdminController extends Controller
     }
 
     public function thisyear(){
+        $delclients = Client::doesntHave('sqds')->get();
+
+        // Delete each client
+        foreach ($delclients as $client) {
+            $client->delete();
+        }
         $getTodayFemaleClients = Client::where('sex', '=', 'female')->whereDate('created_at', '>=', Carbon::now()->startOfYear()->setTimezone('Asia/Manila'))
         ->where('created_at', '<=', Carbon::now()->endOfYear()->setTimezone('Asia/Manila'))
         ->get();

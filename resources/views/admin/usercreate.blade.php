@@ -12,7 +12,7 @@
 
                 <p class="text-center h1 fw-bold mb-3 mx-1 mx-md-4">Add user</p>
 
-                <form class="mx-1 mx-md-4" method="POST" action="{{ route('register') }}">
+                <form class="mx-1 mx-md-4" method="POST" action="{{ route('register.user') }}">
                     @csrf
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -31,18 +31,24 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" name='password' required class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                          <input type="password" id="form3Example4c" name="password" required class="form-control" minlength="8" />
+                          <label class="form-label" for="form3Example4c">Password</label>
+                          <div class="invalid-feedback">
+                              Password must be at least 8 characters.
+                          </div>
+                      </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" name='password_confirmation' required class="form-control" />
+                      <input type="password" id="form3Example4cd" name='password_confirmation' required class="form-control" minlength="8" />
                       <label class="form-label" for="form3Example4cd">Repeat password</label>
+                      <div class="invalid-feedback">
+                          Password must be at least 8 characters.
+                      </div>
                     </div>
                   </div>
 

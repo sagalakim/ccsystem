@@ -465,8 +465,7 @@ Credits
 					    <p><button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button><h3>Need Help?</h3>
     </p>
 					    <div class='line-wh'></div>
-                            <button onclick="window.location.href='{{ url('forgot-password') }}'" class='b-support' title='Forgot Password?'> Forgot Password?</button>
-                            <button onclick="" class='b-support' title='Contact Support'> Contact Support</button>
+                            <button onclick="window.open('mailto:kimjohn.sagala02@gmail.com')" class='b-support' title='Contact Support'> Contact Support</button>
     					<div class='line-wh'></div>
     
   				</div>

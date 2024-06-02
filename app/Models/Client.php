@@ -29,4 +29,9 @@ class Client extends Model
     {
         return $this->belongsTo(ServiceQualityDimension::class, 'id', 'client_id');
     }
+
+    public function sqds()
+    {
+        return $this->hasMany(ServiceQualityDimension::class, 'client_id', 'id');
+    }
 }

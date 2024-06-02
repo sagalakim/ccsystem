@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/download/{sqd}', [ClientSurveyController::class,'downloadpdf'])->name('download');
     Route::get('/create-user', [AdminController::class,'usercreate'])->name('usercreate');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.user');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
